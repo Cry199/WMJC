@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
@@ -31,6 +32,27 @@
     <button type="submit">Login</button>
 
 </form>
+
+<div>
+    <h1>Games</h1>
+    <table>
+        <tr>
+            <th>Nome do Jogo</th>
+            <th>Tabela do Jogo</th>
+            <th>Descrição do Jogo</th>
+            <th>Capa</th>
+
+        </tr>
+        <c:forEach var="game" items="${games}">
+            <tr>
+                <td>${game.nameGame}</td>
+                <td>${game.nameTable}</td>
+                <td>${game.descGame}</td>
+                <td>${game.bannerGamer}</td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
 
 </body>
 </html>
