@@ -6,16 +6,20 @@ public class UserModel
     private String sobrenome;
     private String email;
     private String senha;
-    private TipoUser tipoUser;
+    private String tipoUser;
 
     public UserModel() {
     }
-
     public UserModel(String email, String senha) {
         this.email = email;
         this.senha = senha;
     }
-    public UserModel(String nome, String sobrenome, String email,  String senha, TipoUser tipoUser) {
+    public UserModel(String username, String password, String tipoUser) {
+        this.email = username;
+        this.senha = password;
+        this.tipoUser = tipoUser;
+    }
+    public UserModel(String nome, String sobrenome, String email,  String senha, String tipoUser) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.email = email;
@@ -51,7 +55,17 @@ public class UserModel
         return this.senha;
     }
 
+    public String getTipoUser() {
+        return tipoUser;
+    }
+
+    public void setTipoUser(String tipoUser) {
+        this.tipoUser = tipoUser;
+    }
+
     public void setSenha(final String senha) {
         this.senha = senha;
     }
 }
+
+
