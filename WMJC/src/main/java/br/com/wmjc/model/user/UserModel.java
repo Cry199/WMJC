@@ -51,7 +51,18 @@ public class UserModel
         return this.senha;
     }
 
+    public TipoUser getTipoUser(){
+        return this.tipoUser;
+    }
+
+    public void setTipoUser(TipoUser user) {
+        this.tipoUser = user;
+    }
+
+
     public void setSenha(final String senha) {
         this.senha = senha;
     }
 }
+
+
