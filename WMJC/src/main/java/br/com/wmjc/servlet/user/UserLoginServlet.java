@@ -25,7 +25,7 @@ public class UserLoginServlet extends HttpServlet
 
         if (isValidUser)
         {
-            req.setAttribute("message", "Welcome " + user.getEmail());
+            req.setAttribute("message", "Bem-Vindo" + user.getEmail());
         }
         else
         {
