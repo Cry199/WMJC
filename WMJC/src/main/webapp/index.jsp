@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<form action="/login" method="post">
+<form action="/tipoLogin" method="post">
 
     <span>${requestScope.message}</span>
 
