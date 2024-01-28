@@ -11,81 +11,33 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>WMJC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/WEB-INF/Pages/css/generalStyles.css">
+    <link type="text/css" rel="stylesheet" href="">
 </head>
 <body>
 
-<form action="/tipoLogin" method="post">
+    <div class="menu">
+        <a href="index.jsp">Home</a>
+        <a href="/Jogos">Jogos</a>
+        <a href="Pages/jsp/login/login.jsp">Login</a>
+        <a href="#"></a>
+        <a href="#"></a>
+        </div>
+    </div>
 
     <span>${requestScope.message}</span>
 
-    <br>
+    <div class="content">
+        <h1>WELCOME TO WMJC</h1>
 
-    <label for="username">Username</label>
-    <input type="text" id="username" name="username">
-
-    <br>
-
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password">
-
-    <button type="submit">Login</button>
-
-</form>
-
-<div>
-    <h1>Games</h1>
-    <table>
-        <tr>
-            <th>Nome do Jogo</th>
-            <th>Tabela do Jogo</th>
-            <th>Descrição do Jogo</th>
-            <th>Capa</th>
-
-        </tr>
-        <c:forEach var="game" items="${games}">
-            <tr>
-                <td>${game.nameGame}</td>
-                <td>${game.nameTable}</td>
-                <td>${game.descGame}</td>
-                <td>${game.bannerGamer}</td>
-            </tr>
-        </c:forEach>
-    </table>
-</div>
-
-<form action="/profileComment" method="post">
-
-    <span>${requestScope.message}</span>
-
-    <br>
-
-    <label for="comment">Comentários por Id</label>
-    <input type="text" id="comment" name="comment">
-
-    <br>
-
-    <button type="submit">procurar</button>
-</form>
-
-<div>
-    <h1>Comment</h1>
-    <table>
-        <tr>
-            <th>comentário</th>
-            <th>para: </th>
-            <th>de:</th>
-
-        </tr>
-        <c:forEach var="comment" items="${comments}">
-            <tr>
-                <td>${comment.comment}</td>
-                <td>${comment.idPerfil}</td>
-                <td>${comment.idUser}</td>
-            </tr>
-        </c:forEach>
-    </table>
-</div>
+        <a href="WEB-INF/Pages/Jsp/public/games.jsp">
+            <form action="/Jogos" method="get">
+                <button class="" type="submit">Jogos</button>
+            </form>
+        </a>
+    </div>
 
 </body>
 </html>
