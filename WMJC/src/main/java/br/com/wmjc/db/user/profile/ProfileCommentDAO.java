@@ -1,4 +1,4 @@
-package br.com.wmjc.db.user;
+package br.com.wmjc.db.user.profile;
 
 import br.com.wmjc.config.ConnectionPoolConfig;
 import br.com.wmjc.model.user.profile.Comments.ProfileComments;

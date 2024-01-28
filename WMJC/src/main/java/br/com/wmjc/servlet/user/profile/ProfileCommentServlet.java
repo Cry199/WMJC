@@ -1,6 +1,6 @@
-package br.com.wmjc.servlet.user;
+package br.com.wmjc.servlet.user.profile;
 
-import br.com.wmjc.db.user.ProfileCommentDAO;
+import br.com.wmjc.db.user.profile.ProfileCommentDAO;
 import br.com.wmjc.model.user.profile.Comments.ProfileComments;
 
 import javax.servlet.ServletException;
