@@ -3,15 +3,14 @@ import java.math.BigInteger;
 
 public class GameModel {
 
+    private BigInteger id;
     private BigInteger idUser;
     private String nameGame;
     private String nameTable;
     private String descGame;
     private String bannerGamer;
 
-    public GameModel(){
-
-    }
+    public GameModel(){}
 
     public GameModel(String nameGame, String nameTable, String descGame, String bannerGamer ){
         this.nameGame = nameGame;
@@ -20,7 +19,6 @@ public class GameModel {
         this.bannerGamer = bannerGamer;;
     }
 
-
     public GameModel(BigInteger idUser,String nameGame, String nameTable, String descGame, String bannerGamer ){
         this.idUser = idUser;
         this.nameGame = nameGame;
@@ -28,6 +26,24 @@ public class GameModel {
         this.descGame = descGame;
         this.bannerGamer = bannerGamer;;
     }
+
+    public GameModel(BigInteger id, BigInteger idUser,String nameGame, String nameTable, String descGame, String bannerGamer ){
+        this.id = id;
+        this.idUser = idUser;
+        this.nameGame = nameGame;
+        this.nameTable = nameTable;
+        this.descGame = descGame;
+        this.bannerGamer = bannerGamer;
+    }
+
+    public BigInteger getId() {
+        return id;
+    }
+
+    public void setId(BigInteger id) {
+        this.id = id;
+    }
+
     public BigInteger getIdUser() {
         return idUser;
     }
@@ -67,10 +83,4 @@ public class GameModel {
     public void setBannerGamer(String bannerGamer) {
         this.bannerGamer = bannerGamer;
     }
-
-
-
-
-
-
 }
