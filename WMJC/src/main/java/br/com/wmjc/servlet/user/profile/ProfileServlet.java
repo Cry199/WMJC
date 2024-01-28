@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/gameListAll")
+@WebServlet("/userProfile")
 
 public class ProfileServlet extends HttpServlet
 {
