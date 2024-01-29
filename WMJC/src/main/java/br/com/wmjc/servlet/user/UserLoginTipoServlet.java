@@ -15,17 +15,18 @@ import java.util.List;
 public class UserLoginTipoServlet extends HttpServlet
 {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
         List<UserModel> user = new UserLoginDAO().UsertypeFinder(username, password);
 
-        if(user.isEmpty()) {
+        if(user.isEmpty())
+        {
             req.setAttribute("message", "Usuario invalido");
         }
-        else if(user.get(0).getTipoUser().equals("admin") )
+        else if(user.get(0).getTipoUser().equals("admin"))
         {
             req.setAttribute("message", "Bem-Vindo " + user.get(0).getEmail() + " você é um administrador");
         }
@@ -34,8 +35,6 @@ public class UserLoginTipoServlet extends HttpServlet
             req.setAttribute("message", "Bem-Vindo " + user.get(0).getEmail() + " você é um usuario comum");
         }
 
-
         req.getRequestDispatcher("index.jsp").forward(req, resp);
-
     }
 }

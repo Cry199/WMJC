@@ -11,14 +11,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProfileCommentDAO {
-
-    public List<ProfileComments> CommentList(Integer idPerfil) {
-
+public class ProfileCommentDAO
+{
+    public List<ProfileComments> CommentList(String idPerfil)
+    {
         try (Connection connection = ConnectionPoolConfig.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM ComentariosPerfil Where iddoUser = ?");
-            preparedStatement.setInt(1, new Integer(idPerfil));
-
+            preparedStatement.setString(1, idPerfil);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             List<ProfileComments> comments = new ArrayList<>();
@@ -36,12 +35,10 @@ public class ProfileCommentDAO {
             connection.close();
             return comments;
 
-        } catch (Exception e) {
-            System.out.println("Nenhum comentário no perfil: " + e.getMessage());
-
-            return null;
+        }
+        catch (Exception e)
+        {
+            System.out.println("Erro: " + e.getMessage()); return null;
         }
     }
-
-
 }

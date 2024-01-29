@@ -16,15 +16,14 @@ import java.util.List;
 public class ProfileCommentServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        Integer idPerfil = Integer.valueOf(req.getParameter("comment"));
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
+        String idPerfil = req.getParameter("idPerfil");
 
         List<ProfileComments> comments = new ProfileCommentDAO().CommentList(idPerfil);
 
         req.setAttribute("comments", comments);
 
         req.getRequestDispatcher("index.jsp").forward(req, resp);
-
     }
 }

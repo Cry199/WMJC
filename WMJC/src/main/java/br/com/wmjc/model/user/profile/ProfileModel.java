@@ -7,9 +7,7 @@ public class ProfileModel {
     private String picProfile;
     private String typeUser;
 
-    public ProfileModel(){
-
-    }
+    public ProfileModel(){}
 
     public ProfileModel( String profileName, String picProfile){
         this.profileName = profileName;
