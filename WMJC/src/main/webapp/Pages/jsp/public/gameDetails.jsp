@@ -17,15 +17,17 @@
 </head>
 <body>
 
-    <img src="${sessionScope.game.bannerGamer}" alt="">
+    <img src="${sessionScope.game.bannerGamer}" alt="" width="300px" height="500">
     <h1>${sessionScope.game.nameGame}</h1>
-    <h2>${sessionScope.game.descGame}</h2>
+    <h2>Descrição:</h2>
+    <h3>${sessionScope.game.descGame}</h3>
 
-    <h2>Comentário</h2>
-    <c:forEach var="gameComment" items="${comments}">
+    <h2>Comentários</h2>
+    <c:forEach var="commentUserProfile" items="${comments}">
         <div>
-            <h3>${gameComment.idUser}</h3>
-            <p>${gameComment.commentGame}</p>
+            <img src="${commentUserProfile.userProfile.picProfile}" alt="" width="100px">
+            <h3>${commentUserProfile.userProfile.profileName}</h3>
+            <p>${commentUserProfile.comment.commentGame}</p>
         </div>
     </c:forEach>
 
