@@ -28,12 +28,41 @@ public class ProfileDAO {
                 lista.add(perfil);
             }
             System.out.println("Perfil carregado newba 0_0");
+
+            connection.close();
             return lista;
         }
         catch (Exception e) {
             System.out.println("Erro: " + e.getMessage());
             return null;
+        }
+    }
 
+    public ProfileModel buscarPorIdUser(String id)
+    {
+        try (Connection connection = ConnectionPoolConfig.getConnection())
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM PERFIL_DO_USARIO WHERE IDDOUSER = ?");
+            preparedStatement.setString(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            ProfileModel perfil = null;
+
+            while (resultSet.next())
+            {
+                String profileName = resultSet.getString("NomeDoPerfil");
+                String picProfile = resultSet.getString("imgFerfil");
+
+                perfil = new ProfileModel(profileName, picProfile);
+            }
+
+            connection.close();
+
+            return perfil;
+        }
+        catch (Exception e)
+        {
+            System.out.println("Erro: " + e.getMessage()); return null;
         }
     }
 }
