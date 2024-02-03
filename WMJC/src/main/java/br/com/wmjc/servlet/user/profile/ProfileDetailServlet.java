@@ -22,7 +22,8 @@ import java.util.List;
     public class ProfileDetailServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
         String id = req.getParameter("id");
 
         ProfileModel profile = new ProfileDAO().buscarPorIdUser(id);
@@ -31,9 +32,10 @@ import java.util.List;
 
         List<ProfileCommentUserProfileModel> commentUserProfiles = new ArrayList<>();
 
-        for (ProfileComments comment : comments) {
-            UserModel user = new UserLoginDAO().buscandoUserPorId(comment.getIdUser().toString());
-            commentUserProfiles.add(new ProfileCommentUserProfileModel(profile, comment));
+        for (ProfileComments comment : comments)
+        {
+            ProfileModel userProfile = new ProfileDAO().buscarPorIdUser(comment.getIdUser().toString());
+            commentUserProfiles.add(new ProfileCommentUserProfileModel(userProfile, comment));
         }
 
         HttpSession session = req.getSession();
