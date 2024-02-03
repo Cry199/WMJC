@@ -55,5 +55,28 @@ public class UserLoginDAO {
             return null;
         }
     }
+
+    public UserModel buscandoUserPorId(String string) {
+
+        try (Connection connection = ConnectionPoolConfig.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM use WHERE IDDOUSER = ?");
+            preparedStatement.setString(1, string);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                String iduser = resultSet.getString("iddouser");
+                String img = resultSet.getString("IMGFERFIL");
+                String name = resultSet.getString("NOMEDOPERFIL");
+
+
+                UserModel user = new UserModel(iduser, img,name );
+                return user;
+            }
+
+        } catch (Exception e) {
+            System.out.println("Erro ao buscar usuario por id: " + e.getMessage());
+        }
+        return null;
+    }
 }
 
