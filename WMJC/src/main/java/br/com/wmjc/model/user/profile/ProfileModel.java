@@ -5,7 +5,6 @@ import java.util.BitSet;
 public class ProfileModel {
 
     private BigInteger idProfile;
-
     private BigInteger idDoUser;
     private String profileName;
     private String picProfile;

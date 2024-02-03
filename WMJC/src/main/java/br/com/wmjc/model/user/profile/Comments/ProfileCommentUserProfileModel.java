@@ -6,6 +6,7 @@ public class ProfileCommentUserProfileModel {
 
     private ProfileModel userProfile;
     private ProfileComments commentProfile;
+
     public ProfileCommentUserProfileModel(ProfileModel userProfile, ProfileComments commentProfile) {
         this.userProfile = userProfile;
         this.commentProfile = commentProfile;

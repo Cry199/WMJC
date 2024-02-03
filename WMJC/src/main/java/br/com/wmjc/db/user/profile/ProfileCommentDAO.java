@@ -16,25 +16,25 @@ public class ProfileCommentDAO
     public List<ProfileComments> CommentList(String idPerfil)
     {
         try (Connection connection = ConnectionPoolConfig.getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM ComentariosPerfil Where iddoUser = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM ComentariosPerfil Where IDPERFIL = ?");
             preparedStatement.setString(1, idPerfil);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             List<ProfileComments> comments = new ArrayList<>();
 
             while (resultSet.next()) {
-                Integer id = resultSet.getInt("iddoUser");
+                Integer idUser = resultSet.getInt("iddoUser");
+                Integer iPerfil = resultSet.getInt("idPerfil");
                 String comment = resultSet.getString("Comentario");
-                Integer perfil = resultSet.getInt("idPerfil");
 
-                ProfileComments profileComments = new ProfileComments(id,comment, perfil);
+                ProfileComments profileComments = new ProfileComments(idUser, iPerfil, comment);
                 comments.add(profileComments);
             }
 
             System.out.println("Lista de comentarios: " + comments);
             connection.close();
-            return comments;
 
+            return comments;
         }
         catch (Exception e)
         {
