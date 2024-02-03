@@ -1,6 +1,7 @@
 package br.com.wmjc.model.user.profile.Comments;
 
-import java.math.BigDecimal;
+import br.com.wmjc.model.user.UserModel;
+
 import java.math.BigInteger;
 
 public class ProfileComments {
@@ -9,7 +10,7 @@ public class ProfileComments {
     private Integer idPerfil;
     private Integer idUser;
 
-    public ProfileComments(String id, String idPerfil) {
+    public ProfileComments(ProfileComments id, UserModel idPerfil) {
     }
 
     public ProfileComments(BigInteger id, String comment) {
