@@ -3,6 +3,7 @@ package br.com.wmjc.db.user.profile;
 import br.com.wmjc.config.ConnectionPoolConfig;
 import br.com.wmjc.model.user.profile.ProfileModel;
 
+import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -50,10 +51,11 @@ public class ProfileDAO {
 
             while (resultSet.next())
             {
+                BigInteger idDoUser = BigInteger.valueOf(resultSet.getInt("iddoUser"));
                 String profileName = resultSet.getString("NomeDoPerfil");
                 String picProfile = resultSet.getString("imgFerfil");
 
-                perfil = new ProfileModel(profileName, picProfile);
+                perfil = new ProfileModel(idDoUser, profileName, picProfile);
             }
 
             connection.close();

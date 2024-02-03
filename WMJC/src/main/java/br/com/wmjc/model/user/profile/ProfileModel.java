@@ -1,8 +1,12 @@
 package br.com.wmjc.model.user.profile;
 import java.math.BigInteger;
+import java.util.BitSet;
+
 public class ProfileModel {
 
     private BigInteger idProfile;
+
+    private BigInteger idDoUser;
     private String profileName;
     private String picProfile;
     private String typeUser;
@@ -12,7 +16,13 @@ public class ProfileModel {
     public ProfileModel( String profileName, String picProfile){
         this.profileName = profileName;
         this.picProfile = picProfile;
+    }
 
+    public ProfileModel(BigInteger idDoUser, String profileName, String picProfile)
+    {
+        this.idDoUser = idDoUser;
+        this.profileName = profileName;
+        this.picProfile = picProfile;
     }
 
     public ProfileModel(BigInteger idProfile, String profileName, String picProfile, String typeUser){
@@ -53,6 +63,14 @@ public class ProfileModel {
 
     public void setTypeUser(String typeUser) {
         this.typeUser = typeUser;
+    }
+
+    public BigInteger getIdDoUser() {
+        return idDoUser;
+    }
+
+    public void setIdDoUser(BigInteger idDoUser) {
+        this.idDoUser = idDoUser;
     }
 
 }

@@ -26,7 +26,7 @@
     <c:forEach var="commentUserProfile" items="${comments}">
         <div>
             <img src="${commentUserProfile.userProfile.picProfile}" alt="" width="100px">
-            <h3>${commentUserProfile.userProfile.profileName}</h3>
+            <a href="/perfilId?id=${commentUserProfile.userProfile.idDoUser}">${commentUserProfile.userProfile.profileName}</a>
             <p>${commentUserProfile.comment.commentGame}</p>
         </div>
     </c:forEach>

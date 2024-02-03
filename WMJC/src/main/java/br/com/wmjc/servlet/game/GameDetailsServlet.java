@@ -2,11 +2,13 @@ package br.com.wmjc.servlet.game;
 
 import br.com.wmjc.db.game.GameCommentsDAO;
 import br.com.wmjc.db.game.GameDAO;
+import br.com.wmjc.db.user.UserLoginDAO;
 import br.com.wmjc.db.user.profile.ProfileCommentDAO;
 import br.com.wmjc.db.user.profile.ProfileDAO;
 import br.com.wmjc.model.game.GameModel;
 import br.com.wmjc.model.game.commentsGame.GameCommentUserProfileModel;
 import br.com.wmjc.model.game.commentsGame.GameCommentsModel;
+import br.com.wmjc.model.user.UserModel;
 import br.com.wmjc.model.user.profile.Comments.ProfileComments;
 import br.com.wmjc.model.user.profile.ProfileModel;
 
@@ -30,9 +32,6 @@ public class GameDetailsServlet extends HttpServlet
 
         GameModel game = new GameDAO().buscandoGamePorId(id);
 
-        HttpSession session = req.getSession();
-        session.setAttribute("game", game);
-
         List<GameCommentsModel> comments = new GameCommentsDAO().exibComentariosJogo(id);
 
         List<GameCommentUserProfileModel> commentUserProfiles = new ArrayList<>();
@@ -42,6 +41,9 @@ public class GameDetailsServlet extends HttpServlet
             ProfileModel profile = new ProfileDAO().buscarPorIdUser(comment.getIdUser().toString());
             commentUserProfiles.add(new GameCommentUserProfileModel(comment, profile));
         }
+
+        HttpSession session = req.getSession();
+        session.setAttribute("game", game);
 
         session.setAttribute("comments", commentUserProfiles);
 
