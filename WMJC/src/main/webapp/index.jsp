@@ -13,8 +13,7 @@
     <meta charset="UTF-8">
     <title>WMJC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="/WEB-INF/Pages/css/generalStyles.css">
-    <link type="text/css" rel="stylesheet" href="">
+    <link  rel="stylesheet" href="/Pages/css/gameCssStyles.css">
 </head>
 <body>
     <c:if test="${sessionScope.loggedUser != null}">

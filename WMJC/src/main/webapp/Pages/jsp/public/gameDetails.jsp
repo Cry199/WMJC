@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <title>Games - ${sessionScope.game.nameGame}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="../../css/generalStyles.css">
+    <link type="text/css" rel="stylesheet" href="css/generalStyles.css">
     <link type="text/css" rel="stylesheet" href="">
 </head>
 <body>
