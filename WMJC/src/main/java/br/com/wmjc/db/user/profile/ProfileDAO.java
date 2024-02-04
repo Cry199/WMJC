@@ -67,7 +67,38 @@ public class ProfileDAO
     {
         try (Connection connection = ConnectionPoolConfig.getConnection())
         {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM PERFIL_DO_USARIO WHERE IDDOUSER = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM PERFIL_DO_USARIO  WHERE iddoUser = ?");
+            preparedStatement.setString(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            ProfileModel perfil = null;
+
+            while (resultSet.next())
+            {
+                BigInteger idPerfil = BigInteger.valueOf(resultSet.getInt("id"));
+                BigInteger idDoUser = BigInteger.valueOf(resultSet.getInt("iddoUser"));
+                String profileName = resultSet.getString("NomeDoPerfil");
+                String picProfile = resultSet.getString("imgFerfil");
+                String typeUser = resultSet.getString("TipoDeUser");
+
+                perfil = new ProfileModel(idPerfil, idDoUser, profileName, picProfile, typeUser);
+            }
+
+            connection.close();
+
+            return perfil;
+        }
+        catch (Exception e)
+        {
+            System.out.println("Erro: " + e.getMessage()); return null;
+        }
+    }
+
+    public ProfileModel buscarPorIdUserGame(String id)
+    {
+        try (Connection connection = ConnectionPoolConfig.getConnection())
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM PERFIL_DO_USARIO  WHERE id = ?");
             preparedStatement.setString(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -131,5 +162,26 @@ public class ProfileDAO
         {
             System.out.println("Erro: " + e.getMessage());
         }
+    }
+
+    public Boolean validarPerfil(String id)
+    {
+        try (Connection connection = ConnectionPoolConfig.getConnection())
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM PERFIL_DO_USARIO WHERE IDDOUSER = ?");
+            preparedStatement.setString(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next())
+            {
+                connection.close();
+                return true;
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("Erro: " + e.getMessage());
+        }
+        return false;
     }
 }
