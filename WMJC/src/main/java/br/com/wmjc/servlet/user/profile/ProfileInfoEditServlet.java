@@ -29,6 +29,7 @@ public class ProfileInfoEditServlet extends HttpServlet
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         String id = req.getParameter("id");
+
         String profileName = req.getParameter("profileName");
         String picProfile = req.getParameter("picProfile");
 
