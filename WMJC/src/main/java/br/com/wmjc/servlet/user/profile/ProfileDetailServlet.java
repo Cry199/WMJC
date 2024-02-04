@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/perfil-detalhes")
-    public class ProfileDetailServlet extends HttpServlet {
-
+public class ProfileDetailServlet extends HttpServlet
+{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
@@ -44,6 +44,4 @@ import java.util.List;
 
         req.getRequestDispatcher("/Pages/jsp/profile/profileDetails.jsp").forward(req, resp);
     }
-
-
 }
