@@ -9,10 +9,10 @@ import java.sql.ResultSet;
 public class UserCreateDAO {
     public boolean CreateUser(String name, String sobrenome, String senha, String email)
     {
-        String sql = "INSERT INTO use (name, Sobrenome, senha, email, tipoDeUsario) VALUES (?, ?, ?, ?, ?)";
-
         try (Connection connection = ConnectionPoolConfig.getConnection())
         {
+            String sql = "INSERT INTO use (name, Sobrenome, senha, email, tipoDeUsario) VALUES (?, ?, ?, ?, ?)";
+
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, sobrenome);
