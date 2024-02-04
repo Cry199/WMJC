@@ -16,9 +16,37 @@
     <link type="text/css" rel="stylesheet" href="">
 </head>
 <body>
-    <form action="/tipoLogin" method="post">
+    <c:if test="${sessionScope.loggedUser != null}">
+        <div class="menu">
+            <a href="index.jsp">Home</a>
+            <a href="/Jogos">Jogos</a>
+            <a href="Pages/jsp/login/login.jsp">Login</a>
+            <a href="/perfil-detalhes?id=${sessionScope.loggedUser.id}">${sessionScope.loggedUser.username}</a>
+            <a href="/logout">Sair</a>
+        </div>
+        </div>
+    </c:if>
 
-        <span>${requestScope.message}</span>
+    <c:if test="${sessionScope.loggedUser == null}">
+        <div class="menu">
+            <a href="index.jsp">Home</a>
+            <a href="/Jogos">Jogos</a>
+            <a href="Pages/jsp/login/login.jsp">Login</a>
+            <a href=""></a>
+            <a href="#"></a>
+        </div>
+        </div>
+    </c:if>
+
+    <br>
+
+    <span>${requestScope.message}</span>
+
+    <br>
+
+    <h1>Login</h1>
+
+    <form action="/tipoLogin" method="post">
 
         <br>
 
@@ -33,23 +61,18 @@
         <button type="submit">Login</button>
 
     </form>
+
+    <h1>Cadastro</h1>
+
     <form action="/tipoCadastro" method="post">
 
-        <span>${requestScope.message}</span>
-
-        <br>
-
-        <label for="nome">Nome </label>
+        <label for="nome">Nome: </label>
         <input type="text" id="nome" name="nome">
 
         <br>
 
-        <br>
-
-        <label for="sobrenome">Sobrenome </label>
+        <label for="sobrenome">Sobrenome: </label>
         <input type="text" id="sobrenome" name="sobrenome">
-
-        <br>
 
         <br>
 
@@ -61,8 +84,9 @@
         <label for="email">Email: </label>
         <input type="text" id="email" name="email">
 
-        <button type="submit">Cadrastro</button>
+        <br>
 
+        <button type="submit">Cadrastro</button>
     </form>
 </body>
 </html>
