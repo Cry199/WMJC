@@ -73,5 +73,22 @@ public class GameDAO {
         }
     }
 
+    public void uptadeGame(String gameName, String picGame, String gameDescription, String id) {
 
+        try (Connection connection = ConnectionPoolConfig.getConnection())
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE JOGOS SET NomedoJogo = ?, CapaDoJogo = ?, DescricaoDoJogo = ? WHERE ID = ?");
+            preparedStatement.setString(1, gameName);
+            preparedStatement.setString(2, picGame);
+            preparedStatement.setString(3, gameDescription);
+            preparedStatement.setString(4, id);
+            preparedStatement.executeUpdate();
+            System.out.println(preparedStatement.toString());
+
+        }
+        catch (Exception e)
+        {
+            System.out.println("Erro: " + e.getMessage());
+        }
+    }
 }
