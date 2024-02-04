@@ -35,7 +35,7 @@ public class UserCreateServlet extends HttpServlet
             req.setAttribute("message", "Erro ao criar a conta");
         }
 
-        req.getRequestDispatcher("/Pages/jsp/login/login.jsp").forward(req, resp);
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 
 }
