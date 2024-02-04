@@ -12,13 +12,14 @@
     <meta charset="UTF-8">
     <title>WMJC - Games</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="../../css/generalStyles.css">
-    <link type="text/css" rel="stylesheet" href="">
+    <link rel="stylesheet" href="Pages/css/gameStyles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 </head>
 <body>
-    <div>
 
-        <c:if test="${sessionScope.loggedUser != null}">
+<div>
+    <c:if test="${sessionScope.loggedUser != null}">
         <div class="menu">
             <a href="index.jsp">Home</a>
             <a href="/Jogos">Jogos</a>
@@ -26,7 +27,6 @@
             <a href="/perfil-detalhes?id=${sessionScope.loggedUser.id}">${sessionScope.loggedUser.username}</a>
             <a href="/logout">Sair</a>
         </div>
-    </div>
     </c:if>
 
     <c:if test="${sessionScope.loggedUser == null}">
@@ -37,17 +37,35 @@
             <a href=""></a>
             <a href="#"></a>
         </div>
-        </div>
     </c:if>
-
-        <h1>Games</h1>
-
+</div>
+<section class="game-section">
+    <h2 class="line-title">trending games</h2>
+    <div class="owl-carousel custom-carousel owl-theme">
         <c:forEach var="game" items="${games}">
-            <div>
-                <img src="${game.bannerGamer}" alt="">
-                <a href="/jogo-detalhes?id=${game.id}">${game.nameGame}</a>
+            <div class="item" style="background-image: url(${game.bannerGamer});">
+                <div class="item-desc">
+                    <h3>${game.nameGame}</h3>
+                    <p>${game.descGame}</p>
+                </div>
             </div>
         </c:forEach>
     </div>
+</section>
+
+    <script>
+        jQuery(window).on('load', function(){
+            jQuery(".custom-carousel").owlCarousel({
+                autoWidth: true,
+                loop: true
+            });
+            jQuery(document).ready(function () {
+                jQuery(".custom-carousel .item").click(function () {
+                    jQuery(".custom-carousel .item").not(jQuery(this)).removeClass("active");
+                    jQuery(this).toggleClass("active");
+                });
+            });
+        });
+    </script>
 </body>
 </html>
