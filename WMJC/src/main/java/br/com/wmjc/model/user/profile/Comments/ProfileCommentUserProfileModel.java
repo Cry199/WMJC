@@ -11,7 +11,6 @@ public class ProfileCommentUserProfileModel {
         this.userProfile = userProfile;
         this.commentProfile = commentProfile;
     }
-
     public ProfileModel getUserProfile() {
         return userProfile;
     }
