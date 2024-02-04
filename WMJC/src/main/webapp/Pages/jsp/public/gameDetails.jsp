@@ -42,6 +42,11 @@
 
     <img src="${sessionScope.game.bannerGamer}" alt="" width="300px" height="500">
     <h1>${sessionScope.game.nameGame}</h1>
+
+    <c:if test="${sessionScope.loggedUser != null && sessionScope.loggedUser.id == sessionScope.game.idUser}">
+        <a href="/gameInfoEdit?id=${sessionScope.loggedUser.id}">Editar Jogo</a>
+    </c:if>
+
     <h2>Descrição:</h2>
     <h3>${sessionScope.game.descGame}</h3>
 
