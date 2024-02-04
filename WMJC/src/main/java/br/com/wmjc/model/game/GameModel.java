@@ -10,24 +10,8 @@ public class GameModel {
     private String descGame;
     private String bannerGamer;
 
-    public GameModel(){}
-
-    public GameModel(String nameGame, String nameTable, String descGame, String bannerGamer ){
-        this.nameGame = nameGame;
-        this.nameTable = nameTable;
-        this.descGame = descGame;
-        this.bannerGamer = bannerGamer;;
-    }
-
-    public GameModel(BigInteger idUser,String nameGame, String nameTable, String descGame, String bannerGamer ){
-        this.idUser = idUser;
-        this.nameGame = nameGame;
-        this.nameTable = nameTable;
-        this.descGame = descGame;
-        this.bannerGamer = bannerGamer;;
-    }
-
-    public GameModel(BigInteger id, BigInteger idUser,String nameGame, String nameTable, String descGame, String bannerGamer ){
+    public GameModel(BigInteger id, BigInteger idUser, String nameGame, String nameTable, String descGame ,String bannerGamer)
+    {
         this.id = id;
         this.idUser = idUser;
         this.nameGame = nameGame;
@@ -35,7 +19,6 @@ public class GameModel {
         this.descGame = descGame;
         this.bannerGamer = bannerGamer;
     }
-
     public BigInteger getId() {
         return id;
     }
