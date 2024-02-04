@@ -33,5 +33,36 @@
         <button type="submit">Login</button>
 
     </form>
+    <form action="/tipoCadastro" method="post">
+
+        <span>${requestScope.message}</span>
+
+        <br>
+
+        <label for="nome">Nome </label>
+        <input type="text" id="nome" name="nome">
+
+        <br>
+
+        <br>
+
+        <label for="sobrenome">Sobrenome </label>
+        <input type="text" id="sobrenome" name="sobrenome">
+
+        <br>
+
+        <br>
+
+        <label for="senha">Senha: </label>
+        <input type="password" id="senha" name="senha">
+
+        <br>
+
+        <label for="email">Email: </label>
+        <input type="text" id="email" name="email">
+
+        <button type="submit">Cadrastro</button>
+
+    </form>
 </body>
 </html>
