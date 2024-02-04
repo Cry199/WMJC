@@ -19,8 +19,17 @@ public class ProfileCreateServlet extends HttpServlet
         String profileName = req.getParameter("profileName");
         String picProfile = req.getParameter("picProfile");
 
-        new ProfileDAO().createProfile(id, profileName, picProfile);
+        if(new ProfileDAO().validarPerfil(id))
+        {
+            req.setAttribute("message", "Erro ao criar o perfil");
+        }
+        else
+        {
+            req.setAttribute("message", "Perfil criado com sucesso");
 
-        resp.sendRedirect("/perfil-detalhes?id=" + id);
+            new ProfileDAO().createProfile(id, profileName, picProfile);
+
+            req.setAttribute("message", "Perfil criado com sucesso");
+        }
     }
 }
