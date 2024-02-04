@@ -35,8 +35,6 @@ public class ProfileInfoEditServlet extends HttpServlet
 
         new ProfileDAO().uptadePerfil(id, profileName, picProfile);
 
-        System.out.println(id);
-
         resp.sendRedirect("/perfil-detalhes?id=" + id);
     }
 }
