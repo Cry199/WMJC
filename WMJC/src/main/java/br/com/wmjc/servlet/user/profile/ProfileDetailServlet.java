@@ -28,20 +28,27 @@ public class ProfileDetailServlet extends HttpServlet
 
         ProfileModel profile = new ProfileDAO().buscarPorIdUser(id);
 
-        List<ProfileComments> comments = new ProfileCommentDAO().CommentList(id);
-
-        List<ProfileCommentUserProfileModel> commentUserProfiles = new ArrayList<>();
-
-        for (ProfileComments comment : comments)
+        if(profile == null)
         {
-            ProfileModel userProfile = new ProfileDAO().buscarPorIdUser(comment.getIdUser().toString());
-            commentUserProfiles.add(new ProfileCommentUserProfileModel(userProfile, comment));
+            resp.sendRedirect("/perfil-criar?id=" + id);
         }
+        else
+        {
+            List<ProfileComments> comments = new ProfileCommentDAO().CommentList(profile.getIdProfile().toString());
 
-        HttpSession session = req.getSession();
-        session.setAttribute("profile", profile);
-        session.setAttribute("comments", commentUserProfiles);
+            List<ProfileCommentUserProfileModel> commentUserProfiles = new ArrayList<>();
 
-        req.getRequestDispatcher("/Pages/jsp/profile/profileDetails.jsp").forward(req, resp);
+            for (ProfileComments comment : comments)
+            {
+                ProfileModel userProfile = new ProfileDAO().buscarPorIdUser(comment.getIdUser().toString());
+                commentUserProfiles.add(new ProfileCommentUserProfileModel(userProfile, comment));
+            }
+
+            HttpSession session = req.getSession();
+            session.setAttribute("profile", profile);
+            session.setAttribute("comments", commentUserProfiles);
+
+            req.getRequestDispatcher("/Pages/jsp/profile/profileDetails.jsp").forward(req, resp);
+        }
     }
 }
