@@ -1,6 +1,7 @@
 package br.com.wmjc.servlet.user.profile;
 
 import br.com.wmjc.db.user.profile.ProfileCommentDAO;
+import br.com.wmjc.db.user.profile.ProfileDAO;
 import br.com.wmjc.model.user.profile.Comments.ProfileComments;
 
 import javax.servlet.ServletException;
@@ -18,12 +19,14 @@ public class ProfileCommentServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
+        String idUser = req.getParameter("idDoUser");
         String idPerfil = req.getParameter("idPerfil");
+        String comment = req.getParameter("comment");
 
-        List<ProfileComments> comments = new ProfileCommentDAO().CommentList(idPerfil);
+        String idPerfilD = new ProfileDAO().buscarPorIdUserString(idPerfil);
 
-        req.setAttribute("comments", comments);
+        new ProfileCommentDAO().insertComment(idUser, idPerfilD, comment);
 
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
+        resp.sendRedirect("/perfil-detalhes?id=" + idPerfil);
     }
 }
