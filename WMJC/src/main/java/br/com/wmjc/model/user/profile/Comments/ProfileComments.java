@@ -10,13 +10,6 @@ public class ProfileComments {
     private Integer idPerfil;
     private Integer idUser;
 
-    public ProfileComments() {}
-
-    public ProfileComments(BigInteger id, String comment) {
-        this.id = id;
-        this.comment = comment;
-    }
-
     public ProfileComments(Integer idUser, Integer idPerfil, String comment) {
         this.idUser = idUser;
         this.idPerfil = idPerfil;
