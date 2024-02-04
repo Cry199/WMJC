@@ -45,6 +45,15 @@
     <h2>Descrição:</h2>
     <h3>${sessionScope.game.descGame}</h3>
 
+    <c:if test="${sessionScope.loggedUser != null}">
+        <form action="/gameComment" method="post">
+            <input type="text" name="comment" placeholder="Comente aqui">
+            <input type="hidden" name="idDoUser" value="${sessionScope.loggedUser.id}">
+            <input type="hidden" name="idJogo" value="${sessionScope.game.id}">
+            <input type="submit" value="Comentar">
+        </form>
+    </c:if>
+
     <h2>Comentários</h2>
     <c:forEach var="commentUserProfile" items="${comments}">
         <div>
