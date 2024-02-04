@@ -38,7 +38,7 @@ public class GameDetailsServlet extends HttpServlet
 
         for (GameCommentsModel comment : comments)
         {
-            ProfileModel profile = new ProfileDAO().buscarPorIdUser(comment.getIdUser().toString());
+            ProfileModel profile = new ProfileDAO().buscarPorIdUserGame(comment.getIdUser().toString());
             commentUserProfiles.add(new GameCommentUserProfileModel(comment, profile));
         }
 
