@@ -13,13 +13,6 @@ public class UserModel
 
     private String username;
 
-    public UserModel() {
-    }
-    public UserModel(String email, String senha) {
-        this.email = email;
-        this.senha = senha;
-    }
-
     public UserModel(String username, String password, String tipoUser) {
         this.email = username;
         this.senha = password;
@@ -32,13 +25,6 @@ public class UserModel
         this.senha = senha;
         this.tipoUser = tipoUser;
         this.username = username;
-    }
-    public UserModel(String nome, String sobrenome, String email,  String senha, String tipoUser) {
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.email = email;
-        this.senha = senha;
-        this.tipoUser = tipoUser;
     }
 
     public String getNome() {
