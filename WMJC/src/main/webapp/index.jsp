@@ -17,7 +17,6 @@
     <link type="text/css" rel="stylesheet" href="">
 </head>
 <body>
-
     <c:if test="${sessionScope.loggedUser != null}">
         <div class="menu">
             <a href="index.jsp">Home</a>
