@@ -53,6 +53,8 @@ public class ProfileCommentDAO
             preparedStatement.setString(3, comment);
             preparedStatement.execute();
 
+
+
             connection.close();
         }
         catch (Exception e)
