@@ -10,8 +10,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProfileDAO {
-
+public class ProfileDAO
+{
     public List<ProfileModel> exibPerfil() {
 
         try (Connection connection = ConnectionPoolConfig.getConnection()) {
@@ -65,6 +65,25 @@ public class ProfileDAO {
         catch (Exception e)
         {
             System.out.println("Erro: " + e.getMessage()); return null;
+        }
+    }
+
+    public void uptadePerfil(String id, String profileName, String picProfile)
+    {
+        try (Connection connection = ConnectionPoolConfig.getConnection())
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE PERFIL_DO_USARIO SET NOMEDOPERFIL = ?, imgFerfil = ? WHERE IDDOUSER = ?");
+            preparedStatement.setString(1, profileName);
+            preparedStatement.setString(2, picProfile);
+            preparedStatement.setString(3, id);
+
+            preparedStatement.executeUpdate();
+
+            connection.close();
+        }
+        catch (Exception e)
+        {
+            System.out.println("Erro: " + e.getMessage());
         }
     }
 }
