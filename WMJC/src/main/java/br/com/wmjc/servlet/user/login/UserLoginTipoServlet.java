@@ -1,4 +1,4 @@
-package br.com.wmjc.servlet.user;
+package br.com.wmjc.servlet.user.login;
 
 import br.com.wmjc.db.user.UserLoginDAO;
 import br.com.wmjc.model.user.UserModel;
@@ -21,6 +21,10 @@ public class UserLoginTipoServlet extends HttpServlet
         String password = req.getParameter("password");
 
         List<UserModel> user = new UserLoginDAO().UsertypeFinder(username, password);
+
+        if(!user.isEmpty()) {
+            req.getSession().setAttribute("loggedUser", user.get(0));
+        }
 
         if(user.isEmpty())
         {
