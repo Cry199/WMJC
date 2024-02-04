@@ -24,8 +24,10 @@ public class ProfileModel {
         this.picProfile = picProfile;
     }
 
-    public ProfileModel(BigInteger idProfile, String profileName, String picProfile, String typeUser){
+    public ProfileModel(BigInteger idProfile, BigInteger idDoUser, String profileName, String picProfile, String typeUser)
+    {
         this.idProfile = idProfile;
+        this.idDoUser = idDoUser;
         this.profileName = profileName;
         this.picProfile = picProfile;
         this.typeUser = typeUser;
