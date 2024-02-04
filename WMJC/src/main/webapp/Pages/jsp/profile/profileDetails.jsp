@@ -36,7 +36,6 @@
                 <a href=""></a>
                 <a href="#"></a>
             </div>
-            </div>
         </c:if>
 
         <img src="${sessionScope.profile.picProfile}" alt="" width="300px" height="500">
@@ -51,6 +50,14 @@
 
         <h1>${sessionScope.profile.profileName}</h1>
 
+        <c:if test="${sessionScope.loggedUser != null}">
+            <form action="/profileComment" method="post">
+                <input type="text" name="comment" placeholder="Comente aqui">
+                <input type="hidden" name="idDoUser" value="${sessionScope.loggedUser.id}">
+                <input type="hidden" name="idPerfil" value="${sessionScope.profile.idDoUser}">
+                <input type="submit" value="Comentar">
+            </form>
+        </c:if>
 
         <h2>Comentários</h2>
         <c:forEach var="commentProfile" items="${comments}">
