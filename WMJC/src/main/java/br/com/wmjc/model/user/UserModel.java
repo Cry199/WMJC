@@ -1,30 +1,30 @@
 package br.com.wmjc.model.user;
 
+import java.math.BigInteger;
+
 public class UserModel
 {
+    private BigInteger id;
     private String nome;
     private String sobrenome;
     private String email;
     private String senha;
     private String tipoUser;
 
-    public UserModel() {
-    }
-    public UserModel(String email, String senha) {
-        this.email = email;
-        this.senha = senha;
-    }
+    private String username;
+
     public UserModel(String username, String password, String tipoUser) {
         this.email = username;
         this.senha = password;
         this.tipoUser = tipoUser;
     }
-    public UserModel(String nome, String sobrenome, String email,  String senha, String tipoUser) {
-        this.nome = nome;
-        this.sobrenome = sobrenome;
+
+    public UserModel(BigInteger id, String email, String senha, String tipoUser, String username) {
+        this.id = id;
         this.email = email;
         this.senha = senha;
         this.tipoUser = tipoUser;
+        this.username = username;
     }
 
     public String getNome() {
@@ -65,6 +65,22 @@ public class UserModel
 
     public void setSenha(final String senha) {
         this.senha = senha;
+    }
+
+    public BigInteger getId() {
+        return id;
+    }
+
+    public void setId(BigInteger id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
 

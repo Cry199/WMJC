@@ -16,13 +16,14 @@ public class ProfileCommentDAO
     public List<ProfileComments> CommentList(String idPerfil)
     {
         try (Connection connection = ConnectionPoolConfig.getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM ComentariosPerfil Where IDPERFIL = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM ComentariosPerfil Where IDPERFIL = ? ORDER BY ID DESC");
             preparedStatement.setString(1, idPerfil);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             List<ProfileComments> comments = new ArrayList<>();
 
-            while (resultSet.next()) {
+            while (resultSet.next())
+            {
                 Integer idUser = resultSet.getInt("iddoUser");
                 Integer iPerfil = resultSet.getInt("idPerfil");
                 String comment = resultSet.getString("Comentario");
@@ -39,6 +40,26 @@ public class ProfileCommentDAO
         catch (Exception e)
         {
             System.out.println("Erro: " + e.getMessage()); return null;
+        }
+    }
+
+    public void insertComment(String idUser, String idPerfil, String comment)
+    {
+        try (Connection connection = ConnectionPoolConfig.getConnection())
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO ComentariosPerfil (iddoUser, idPerfil, Comentario) VALUES (?, ?, ?)");
+            preparedStatement.setString(1, idUser);
+            preparedStatement.setString(2, idPerfil);
+            preparedStatement.setString(3, comment);
+            preparedStatement.execute();
+
+
+
+            connection.close();
+        }
+        catch (Exception e)
+        {
+            System.out.println("Erro: " + e.getMessage());
         }
     }
 }

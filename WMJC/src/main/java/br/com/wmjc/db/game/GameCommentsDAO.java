@@ -17,8 +17,10 @@ public class GameCommentsDAO
     {
         try (Connection connection = ConnectionPoolConfig.getConnection())
         {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM ComentarioDejogo Where idJogo = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM ComentarioDejogo Where idJogo = ? ORDER BY ID DESC");
             preparedStatement.setString(1, idGame);
+
+            System.out.println("SQL: " + preparedStatement.toString());
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -44,4 +46,23 @@ public class GameCommentsDAO
         }
     }
 
+    public void insertComment(String idUser, String idGame, String comment)
+    {
+        try (Connection connection = ConnectionPoolConfig.getConnection())
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO ComentarioDejogo (iddoUser, idJogo, Comentario) VALUES (?, ?, ?)");
+            preparedStatement.setString(1, idUser);
+            preparedStatement.setString(2, idGame);
+            preparedStatement.setString(3, comment);
+            preparedStatement.execute();
+
+            System.out.println("SQL: " + preparedStatement.toString());
+
+            connection.close();
+        }
+        catch (Exception e)
+        {
+            System.out.println("Erro: " + e.getMessage());
+        }
+    }
 }

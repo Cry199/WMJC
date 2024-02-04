@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: caual
-  Date: 28/01/2024
-  Time: 15:16
+  Date: 04/02/2024
+  Time: 04:25
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -36,37 +36,33 @@
                 <a href=""></a>
                 <a href="#"></a>
             </div>
-        </c:if>
-
-        <img src="${sessionScope.profile.picProfile}" alt="" width="300px" height="500">
-
-        <br>
-
-        <c:if test="${sessionScope.loggedUser != null && sessionScope.loggedUser.id == sessionScope.profile.idDoUser}">
-            <a href="/perfilInfoEdit?id=${sessionScope.loggedUser.id}">Editar Perfil</a>
-        </c:if>
-
-        <br>
-
-        <h1>${sessionScope.profile.profileName}</h1>
-
-        <c:if test="${sessionScope.loggedUser != null}">
-            <form action="/profileComment" method="post">
-                <input type="text" name="comment" placeholder="Comente aqui">
-                <input type="hidden" name="idDoUser" value="${sessionScope.loggedUser.id}">
-                <input type="hidden" name="idPerfil" value="${sessionScope.profile.idDoUser}">
-                <input type="submit" value="Comentar">
-            </form>
-        </c:if>
-
-        <h2>Comentários</h2>
-        <c:forEach var="commentProfile" items="${comments}">
-            <div>
-                <img src="${commentProfile.userProfile.picProfile}" alt="" width="100px">
-                <a href="/perfil-detalhes?id=${commentProfile.userProfile.idDoUser}">${commentProfile.userProfile.profileName}</a>
-                <p>${commentProfile.commentProfile.comment}</p>
             </div>
-        </c:forEach>
+        </c:if>
 
+        <br>
+
+        <h6>${requestScope.erroUpdate}</h6>
+
+        <form action="/perfilInfoEdit" id="" method="post">
+            <div class="profilIgm">
+                <img src="${sessionScope.profile.picProfile}" alt="" width="100px">
+                <input type="text" name="picProfile" id="picProfile" value="${sessionScope.profile.picProfile}" required>
+                <input type="hidden" name="fieldToUpdate" value="picProfile">
+            </div>
+
+            <br>
+
+            <div class="profileInfo">
+                <h2>${sessionScope.profile.profileName}</h2>
+                <input type="text" name="profileName" id="username" value="${sessionScope.profile.profileName}" required>
+                <input type="hidden" name="fieldToUpdate" value="profileName">
+            </div>
+
+            <br>
+
+            <input type="hidden" name="id" value="${sessionScope.loggedUser.id}">
+
+            <button>Alterar</button>
+        </form>
     </body>
 </html>

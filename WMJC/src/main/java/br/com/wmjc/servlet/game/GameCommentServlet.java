@@ -1,5 +1,7 @@
-package br.com.wmjc.servlet.user.profile;
+package br.com.wmjc.servlet.game;
 
+import br.com.wmjc.db.game.GameCommentsDAO;
+import br.com.wmjc.db.game.GameDAO;
 import br.com.wmjc.db.user.profile.ProfileCommentDAO;
 import br.com.wmjc.db.user.profile.ProfileDAO;
 import br.com.wmjc.model.user.profile.Comments.ProfileComments;
@@ -13,20 +15,20 @@ import java.io.IOException;
 import java.util.List;
 
 
-@WebServlet("/profileComment")
-public class ProfileCommentServlet extends HttpServlet {
+@WebServlet("/gameComment")
+public class GameCommentServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         String idUser = req.getParameter("idDoUser");
-        String idPerfil = req.getParameter("idPerfil");
+        String idJogo = req.getParameter("idJogo");
         String comment = req.getParameter("comment");
 
-        String idPerfilD = new ProfileDAO().buscarPorIdUserString(idPerfil);
+        String idPerfilD = new ProfileDAO().buscarPorIdUserString(idUser);
 
-        new ProfileCommentDAO().insertComment(idUser, idPerfilD, comment);
+        new GameCommentsDAO().insertComment(idPerfilD, idJogo, comment);
 
-        resp.sendRedirect("/perfil-detalhes?id=" + idPerfil);
+        resp.sendRedirect("/jogo-detalhes?id=" + idJogo);
     }
 }

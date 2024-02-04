@@ -17,6 +17,29 @@
 </head>
 <body>
     <div>
+
+        <c:if test="${sessionScope.loggedUser != null}">
+        <div class="menu">
+            <a href="index.jsp">Home</a>
+            <a href="/Jogos">Jogos</a>
+            <a href="Pages/jsp/login/login.jsp">Login</a>
+            <a href="/perfil-detalhes?id=${sessionScope.loggedUser.id}">${sessionScope.loggedUser.username}</a>
+            <a href="/logout">Sair</a>
+        </div>
+    </div>
+    </c:if>
+
+    <c:if test="${sessionScope.loggedUser == null}">
+        <div class="menu">
+            <a href="index.jsp">Home</a>
+            <a href="/Jogos">Jogos</a>
+            <a href="Pages/jsp/login/login.jsp">Login</a>
+            <a href=""></a>
+            <a href="#"></a>
+        </div>
+        </div>
+    </c:if>
+
         <h1>Games</h1>
 
         <c:forEach var="game" items="${games}">

@@ -11,7 +11,6 @@ public class GameCommentUserProfileModel
         this.comment = comment;
         this.userProfile = userProfile;
     }
-
     public GameCommentsModel getComment() {
         return comment;
     }

@@ -44,7 +44,8 @@ public class GameDAO {
     }
 
     public GameModel buscandoGamePorId(String id) {
-        try (Connection connection = ConnectionPoolConfig.getConnection()) {
+        try (Connection connection = ConnectionPoolConfig.getConnection())
+        {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM JOGOS WHERE ID = ?");
             preparedStatement.setString(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -53,12 +54,14 @@ public class GameDAO {
 
             while (resultSet.next())
             {
+                BigInteger idJogo = BigInteger.valueOf(resultSet.getInt("id"));
+                BigInteger idUser = BigInteger.valueOf(resultSet.getInt("iddoUser"));
                 String nomeJogo = resultSet.getString("NomedoJogo");
                 String tabJogo = resultSet.getString("nomeDaTabalaDojogo");
                 String descriJogo = resultSet.getString("DescricaoDoJogo");
                 String capaJogo = resultSet.getString("CapaDoJogo");
 
-                game = new GameModel(nomeJogo, tabJogo, descriJogo, capaJogo);
+                game = new GameModel(idJogo, idUser, nomeJogo, tabJogo, descriJogo, capaJogo);
             }
             System.out.println("Jogo encontrado com sucesso :)");
             return game;
@@ -69,4 +72,6 @@ public class GameDAO {
 
         }
     }
+
+
 }
