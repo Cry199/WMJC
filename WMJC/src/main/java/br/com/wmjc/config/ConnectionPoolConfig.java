@@ -14,8 +14,8 @@ public class ConnectionPoolConfig {
         getDataSource();
     }
 
-    public static BasicDataSource getDataSource() {
-
+    public static BasicDataSource getDataSource()
+    {
         if (dataSource == null)
         {
             dataSource = new BasicDataSource();
