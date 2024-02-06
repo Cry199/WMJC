@@ -18,7 +18,7 @@
 <body>
     <c:if test="${sessionScope.loggedUser != null}">
         <div class="menu">
-            <a href="index.jsp">Home</a>
+            <a href="/index">Home</a>
             <a href="/Jogos">Jogos</a>
             <a href="#">Login</a>
             <a href="/perfil-detalhes?id=${sessionScope.loggedUser.id}">${sessionScope.loggedUser.username}</a>
@@ -29,7 +29,7 @@
 
     <c:if test="${sessionScope.loggedUser == null}">
         <div class="menu">
-            <a href="index.jsp">Home</a>
+            <a href="/index">Home</a>
             <a href="/Jogos">Jogos</a>
             <a href="#">Login</a>
             <a href=""></a>
