@@ -19,7 +19,7 @@
 <div>
     <c:if test="${sessionScope.loggedUser != null}">
         <div class="menu">
-            <a href="index.jsp">Home</a>
+            <a href="/index">Home</a>
             <a href="/Jogos">Jogos</a>
             <a href="Pages/jsp/login/login.jsp">Login</a>
             <a href="/perfil-detalhes?id=${sessionScope.loggedUser.id}">${sessionScope.loggedUser.username}</a>
@@ -29,7 +29,7 @@
 
     <c:if test="${sessionScope.loggedUser == null}">
         <div class="menu">
-            <a href="index.jsp">Home</a>
+            <a href="/index">Home</a>
             <a href="/Jogos">Jogos</a>
             <a href="Pages/jsp/login/login.jsp">Login</a>
             <a href="#"></a>
@@ -40,13 +40,22 @@
     <h2>trending games</h2>
     <div class="cont">
         <c:forEach var="game" items="${games}">
-            <div class="igmDiv" style="background-image: url(${game.bannerGamer});">
-                <div class="">
-                    <h2>${game.nameGame}</h2>
-                    <p>${game.descGame}</p>
+                <div class="igmDiv" data-game-id="${game.id}" style="background-image: url(${game.bannerGamer});">
+                    <div class="">
+                        <h2>${game.nameGame}</h2>
+                        <p>${game.descGame}</p>
+                    </div>
                 </div>
-            </div>
         </c:forEach>
     </div>
+
+    <script>
+        document.querySelectorAll('.igmDiv').forEach(function(div) {
+            div.addEventListener('click', function() {
+                var gameId = this.getAttribute('data-game-id');
+                window.location.href = `/jogo-detalhes?id=` + gameId;
+            });
+        });
+    </script>
 </body>
 </html>
