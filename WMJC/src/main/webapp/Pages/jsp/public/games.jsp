@@ -13,15 +13,13 @@
     <title>WMJC - Games</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Pages/css/gameStyles.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 </head>
 <body>
 
 <div>
     <c:if test="${sessionScope.loggedUser != null}">
         <div class="menu">
-            <a href="index.jsp">Home</a>
+            <a href="/index">Home</a>
             <a href="/Jogos">Jogos</a>
             <a href="Pages/jsp/login/login.jsp">Login</a>
             <a href="/perfil-detalhes?id=${sessionScope.loggedUser.id}">${sessionScope.loggedUser.username}</a>
@@ -31,39 +29,31 @@
 
     <c:if test="${sessionScope.loggedUser == null}">
         <div class="menu">
-            <a href="index.jsp">Home</a>
+            <a href="/index">Home</a>
             <a href="/Jogos">Jogos</a>
             <a href="Pages/jsp/login/login.jsp">Login</a>
-            <a href=""></a>
+            <a href="#"></a>
             <a href="#"></a>
         </div>
     </c:if>
 </div>
-<section class="game-section">
-    <h2 class="line-title">trending games</h2>
-    <div class="owl-carousel custom-carousel owl-theme">
+    <h2>trending games</h2>
+    <div class="cont">
         <c:forEach var="game" items="${games}">
-            <div class="item" style="background-image: url(${game.bannerGamer});">
-                <div class="item-desc">
-                    <h3>${game.nameGame}</h3>
-                    <p>${game.descGame}</p>
+                <div class="igmDiv" data-game-id="${game.id}" style="background-image: url(${game.bannerGamer});">
+                    <div class="">
+                        <h2>${game.nameGame}</h2>
+                        <p>${game.descGame}</p>
+                    </div>
                 </div>
-            </div>
         </c:forEach>
     </div>
-</section>
 
     <script>
-        jQuery(window).on('load', function(){
-            jQuery(".custom-carousel").owlCarousel({
-                autoWidth: true,
-                loop: true
-            });
-            jQuery(document).ready(function () {
-                jQuery(".custom-carousel .item").click(function () {
-                    jQuery(".custom-carousel .item").not(jQuery(this)).removeClass("active");
-                    jQuery(this).toggleClass("active");
-                });
+        document.querySelectorAll('.igmDiv').forEach(function(div) {
+            div.addEventListener('click', function() {
+                var gameId = this.getAttribute('data-game-id');
+                window.location.href = `/jogo-detalhes?id=` + gameId;
             });
         });
     </script>
