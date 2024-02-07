@@ -24,7 +24,7 @@ public class AuthenticationFilter implements Filter {
         else
         {
             request.setAttribute("message", "Usuario não logado!");
-            request.getRequestDispatcher("/Pages/jsp/login/login.jsp").forward(httpServletRequest, response);
+            request.getRequestDispatcher("/Pages/jsp/login/login.jsp.jsp").forward(httpServletRequest, response);
         }
     }
 
