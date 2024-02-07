@@ -24,15 +24,19 @@ public class UserCreateServlet extends HttpServlet
         String senha = req.getParameter("senha");
         String email = req.getParameter("email");
 
-        boolean x = new UserCreateDAO().CreateUser(nome, sobrenome, senha, email);
-
-        if(x)
+        if(new UserCreateDAO().validarUser(email))
         {
-          req.setAttribute("message", "Criado com sucesso");
+            req.setAttribute("message", "Usuario ja cadastrado");
+
+            req.getRequestDispatcher("/Pages/jsp/login/login.jsp").forward(req, resp);
+        }
+        else if(new UserCreateDAO().CreateUser(nome, sobrenome, senha, email))
+        {
+            req.setAttribute("message", "Usuario cadastrado com sucesso");
         }
         else
         {
-            req.setAttribute("message", "Erro ao criar a conta");
+            req.setAttribute("message", "Erro ao cadastrar usuario");
         }
 
         req.getRequestDispatcher("index.jsp").forward(req, resp);
