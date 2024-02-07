@@ -32,4 +32,25 @@ public class UserCreateDAO {
 
         return false;
     }
+
+    public boolean validarUser(String email)
+    {
+        try (Connection connection = ConnectionPoolConfig.getConnection())
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM use WHERE email = ?");
+            preparedStatement.setString(1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if(resultSet.next())
+            {
+                connection.close();
+                return true;
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("Erro ao verificar usuario: " + e.getMessage());
+        }
+        return false;
+    }
 }
