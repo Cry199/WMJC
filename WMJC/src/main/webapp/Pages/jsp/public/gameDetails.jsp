@@ -39,7 +39,6 @@
         </div>
     </c:if>
 
-
     <img src="${sessionScope.game.bannerGamer}" alt="" width="300px" height="500">
     <h1>${sessionScope.game.nameGame}</h1>
 
@@ -75,6 +74,5 @@
             </c:if>
         </div>
     </c:forEach>
-
 </body>
 </html>
