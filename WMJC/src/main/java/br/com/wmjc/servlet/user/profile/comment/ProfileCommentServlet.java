@@ -1,4 +1,4 @@
-package br.com.wmjc.servlet.user.profile;
+package br.com.wmjc.servlet.user.profile.comment;
 
 import br.com.wmjc.db.user.profile.ProfileCommentDAO;
 import br.com.wmjc.db.user.profile.ProfileDAO;
