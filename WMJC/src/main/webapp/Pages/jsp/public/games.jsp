@@ -16,28 +16,31 @@
 </head>
 <body>
 
-<div>
-    <c:if test="${sessionScope.loggedUser != null}">
-        <div class="menu">
-            <a href="/index">Home</a>
-            <a href="/Jogos">Jogos</a>
-            <a href="Pages/jsp/login/login.jsp">Login</a>
-            <a href="/perfil-detalhes?id=${sessionScope.loggedUser.id}">${sessionScope.loggedUser.username}</a>
-            <a href="/logout">Sair</a>
-        </div>
-    </c:if>
+    <div>
+        <c:if test="${sessionScope.loggedUser != null}">
+            <div class="menu">
+                <a href="/index">Home</a>
+                <a href="/Jogos">Jogos</a>
+                <a href="Pages/jsp/login/login.jsp">Login</a>
+                <a href="/perfil-detalhes?id=${sessionScope.loggedUser.id}">${sessionScope.loggedUser.username}</a>
+                <a href="/logout">Sair</a>
+            </div>
+        </c:if>
 
-    <c:if test="${sessionScope.loggedUser == null}">
-        <div class="menu">
-            <a href="/index">Home</a>
-            <a href="/Jogos">Jogos</a>
-            <a href="Pages/jsp/login/login.jsp">Login</a>
-            <a href="#"></a>
-            <a href="#"></a>
-        </div>
-    </c:if>
-</div>
-    <h2>trending games</h2>
+        <c:if test="${sessionScope.loggedUser == null}">
+            <div class="menu">
+                <a href="/index">Home</a>
+                <a href="/Jogos">Jogos</a>
+                <a href="Pages/jsp/login/login.jsp">Login</a>
+                <a href="#"></a>
+                <a href="#"></a>
+            </div>
+        </c:if>
+    </div>
+
+    <span>${requestScope.message}</span>
+
+    <h2>Jogos</h2>
     <div class="cont">
         <c:forEach var="game" items="${games}">
                 <div class="igmDiv" data-game-id="${game.id}" style="background-image: url(${game.bannerGamer});">
