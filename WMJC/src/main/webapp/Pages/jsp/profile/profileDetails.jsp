@@ -16,7 +16,6 @@
     <link type="text/css" rel="stylesheet" href="">
 </head>
     <body>
-
         <c:if test="${sessionScope.loggedUser != null}">
             <div class="menu">
                 <a href="/index">Home</a>
@@ -42,7 +41,7 @@
 
         <br>
 
-        <c:if test="${sessionScope.loggedUser != null && sessionScope.loggedUser.id == sessionScope.profile.idDoUser}">
+        <c:if test="${sessionScope.loggedUser.id == sessionScope.profile.idDoUser}">
             <a href="/perfilInfoEdit?id=${sessionScope.loggedUser.id}">Editar Perfil</a>
         </c:if>
 
@@ -65,8 +64,16 @@
                 <img src="${commentProfile.userProfile.picProfile}" alt="" width="100px">
                 <a href="/perfil-detalhes?id=${commentProfile.userProfile.idDoUser}">${commentProfile.userProfile.profileName}</a>
                 <p>${commentProfile.commentProfile.comment}</p>
+                <c:if test="${sessionScope.loggedUser.id == sessionScope.profile.idDoUser || sessionScope.loggedUser.id == commentProfile.userProfile.idDoUser}">
+                    <form action="/profileDeleteComment" method="post">
+                        <input type="hidden" name="idComment" value="${commentProfile.commentProfile.comment}">
+                        <input type="hidden" name="idPerfil" value="${commentProfile.commentProfile.idPerfil}">
+                        <input type="hidden" name="idUser" value="${commentProfile.userProfile.idDoUser}">
+                        <input type="hidden" name="idDoDonoPerfil" value="${sessionScope.profile.idDoUser}">
+                        <button type="submit">Deletar</button>
+                    </form>
+                </c:if>
             </div>
         </c:forEach>
-
     </body>
 </html>
