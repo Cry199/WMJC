@@ -40,8 +40,6 @@
 
     <c:if test='${sessionScope.loggedUser.tipoUser == "admin"}'>"
         <h1>Admin</h1>
-
-
     </c:if>
 
 </body>
