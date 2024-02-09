@@ -56,9 +56,25 @@ public class GameCommentsDAO
             preparedStatement.setString(3, comment);
             preparedStatement.execute();
 
-            System.out.println("SQL: " + preparedStatement.toString());
+            System.out.println("Comentario inserido com sucesso");
+        }
+        catch (Exception e)
+        {
+            System.out.println("Erro: " + e.getMessage());
+        }
+    }
 
-            connection.close();
+    public void deleteComment(String idComment, String idGame, String idUser)
+    {
+        try (Connection connection = ConnectionPoolConfig.getConnection())
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM ComentarioDejogo WHERE COMENTARIO = ? AND IDDOUSER = ? AND IDJOGO  = ?");
+            preparedStatement.setString(1, idComment);
+            preparedStatement.setString(2, idUser);
+            preparedStatement.setString(3, idGame);
+            preparedStatement.execute();
+
+            System.out.println("GameCommentsDAO: Comentario deletado com sucesso");
         }
         catch (Exception e)
         {
