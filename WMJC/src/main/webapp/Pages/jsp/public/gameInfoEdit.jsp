@@ -16,7 +16,6 @@
     <link type="text/css" rel="stylesheet" href="">
 </head>
 <body>
-
     <c:if test="${sessionScope.loggedUser != null}">
         <div class="menu">
             <a href="/index">Home</a>
@@ -28,49 +27,56 @@
         </div>
     </c:if>
 
-<c:if test="${sessionScope.loggedUser == null}">
-    <div class="menu">
-        <a href="/index">Home</a>
-        <a href="/Jogos">Jogos</a>
-        <a href="Pages/jsp/login/login.jsp">Login</a>
-        <a href=""></a>
-        <a href="#"></a>
-    </div>
-    </div>
-</c:if>
-
-<br>
-
-<h6>${requestScope.erroUpdate}</h6>
-
-<form action="/gameInfoEdit" id="" method="post">
-    <div class="GameIMG">
-        <img src="${sessionScope.game.bannerGamer}" alt="" width="100px">
-        <input type="text" name="picGame" id="picGame" value="${sessionScope.game.bannerGamer}" required>
-        <input type="hidden" name="" value="picGame">
-    </div>
+    <c:if test="${sessionScope.loggedUser == null}">
+        <div class="menu">
+            <a href="/index">Home</a>
+            <a href="/Jogos">Jogos</a>
+            <a href="Pages/jsp/login/login.jsp">Login</a>
+            <a href=""></a>
+            <a href="#"></a>
+        </div>
+        </div>
+    </c:if>
 
     <br>
 
-    <div class="gameInfo">
-        <h2>${sessionScope.game.nameGame}</h2>
-        <input type="text" name="gameName" id="gameName" value="${sessionScope.game.nameGame}" required>
-        <input type="hidden" name="" value="gameName">
-    </div>
+    <h6>${requestScope.erroUpdate}</h6>
+
+    <form action="/gameInfoEdit" id="" method="post">
+        <div class="GameIMG">
+            <img src="${sessionScope.game.bannerGamer}" alt="" width="100px">
+            <input type="text" name="picGame" id="picGame" value="${sessionScope.game.bannerGamer}" required>
+            <input type="hidden" name="" value="picGame">
+        </div>
+
+        <br>
+
+        <div class="gameInfo">
+            <h2>${sessionScope.game.nameGame}</h2>
+            <input type="text" name="gameName" id="gameName" value="${sessionScope.game.nameGame}" required>
+            <input type="hidden" name="" value="gameName">
+        </div>
+
+        <br>
+
+        <div class="gameDescription">
+            <h2>${sessionScope.game.descGame}</h2>
+            <input type="text" name="aa" id="gameDesc" value="${sessionScope.game.descGame}" required>
+            <input type="hidden" name="" value="descGame">
+        </div>
+
+        <br>
+
+        <input type="hidden" name="id" value="${sessionScope.game.id}">
+
+        <button>Alterar</button>
+    </form>
 
     <br>
 
-    <div class="gameDescription">
-        <h2>${sessionScope.game.descGame}</h2>
-        <input type="text" name="aa" id="gameDesc" value="${sessionScope.game.descGame}" required>
-        <input type="hidden" name="" value="descGame">
-    </div>
-
-    <br>
-
-    <input type="hidden" name="id" value="${sessionScope.game.id}">
-
-    <button>Alterar</button>
-</form>
+    <form action="/gameInfoEditDelete" id="" method="post">
+        <input type="hidden" name="id" value="${sessionScope.game.id}">
+        <button>Deletar</button>
+    </form>
 </body>
 </html>
