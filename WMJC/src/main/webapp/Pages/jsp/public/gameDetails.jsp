@@ -65,6 +65,14 @@
             <img src="${commentUserProfile.userProfile.picProfile}" alt="" width="100px">
             <a href="/perfil-detalhes?id=${commentUserProfile.userProfile.idDoUser}">${commentUserProfile.userProfile.profileName}</a>
             <p>${commentUserProfile.comment.commentGame}</p>
+            <c:if test="${sessionScope.loggedUser.id == commentUserProfile.userProfile.idDoUser || sessionScope.loggedUser.id == sessionScope.game.idUser}">
+                <form action="/gameDeleteComment" method="post">
+                    <input type="hidden" name="idComment" value="${commentUserProfile.comment.commentGame}">
+                    <input type="hidden" name="idPerfil" value="${commentUserProfile.userProfile.idDoUser}">
+                    <input type="hidden" name="idGame" value="${sessionScope.game.id}">
+                    <button type="submit">Deletar</button>
+                </form>
+            </c:if>
         </div>
     </c:forEach>
 
