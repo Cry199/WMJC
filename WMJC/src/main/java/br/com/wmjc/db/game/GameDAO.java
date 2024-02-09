@@ -91,4 +91,19 @@ public class GameDAO {
             System.out.println("Erro: " + e.getMessage());
         }
     }
+
+    public void deleteGame(String id) {
+        try (Connection connection = ConnectionPoolConfig.getConnection())
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM JOGOS WHERE ID = ?");
+            preparedStatement.setString(1, id);
+            preparedStatement.execute();
+
+            System.out.println(preparedStatement.toString());
+        }
+        catch (Exception e)
+        {
+            System.out.println("Erro: " + e.getMessage());
+        }
+    }
 }
