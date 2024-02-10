@@ -66,9 +66,7 @@
                 <p>${commentProfile.commentProfile.comment}</p>
                 <c:if test="${sessionScope.loggedUser.id == sessionScope.profile.idDoUser || sessionScope.loggedUser.id == commentProfile.userProfile.idDoUser}">
                     <form action="/profileDeleteComment" method="post">
-                        <input type="hidden" name="idComment" value="${commentProfile.commentProfile.comment}">
-                        <input type="hidden" name="idPerfil" value="${commentProfile.commentProfile.idPerfil}">
-                        <input type="hidden" name="idUser" value="${commentProfile.userProfile.idDoUser}">
+                        <input type="hidden" name="id" value="${commentProfile.commentProfile.id}">
                         <input type="hidden" name="idDoDonoPerfil" value="${sessionScope.profile.idDoUser}">
                         <button type="submit">Deletar</button>
                     </form>
