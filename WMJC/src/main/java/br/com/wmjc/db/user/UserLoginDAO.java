@@ -12,7 +12,7 @@ import java.util.List;
 
 public class UserLoginDAO
 {
-    public List<UserModel> UsertypeFinder(String email, String senha)
+    public UserModel UsertypeFinder(String email, String senha)
     {
         try (Connection connection = ConnectionPoolConfig.getConnection())
         {
@@ -21,9 +21,7 @@ public class UserLoginDAO
             preparedStatement.setString(2, senha);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            List<UserModel> users = new ArrayList<>();
-
-            while (resultSet.next())
+            if(resultSet.next())
             {
                 BigInteger id = new BigInteger(resultSet.getString("id"));
                 String mail = resultSet.getString("email");
@@ -32,22 +30,19 @@ public class UserLoginDAO
                 String username = resultSet.getString("username");
 
                 UserModel user = new UserModel(id, mail, sen, tipoUSer, username);
-                users.add(user);
+
+                System.out.println("Lista de usuarios: " + user);
+
+                connection.close();
+
+                return user;
             }
-
-            System.out.println("Lista de usuarios: " + users);
-
-            connection.close();
-
-            return users;
-
         }
         catch (Exception e)
         {
             System.out.println("Erro ao verificar login: " + e.getMessage());
-
-            return null;
         }
+        return null;
     }
 
     public UserModel buscandoUserPorId(String string)

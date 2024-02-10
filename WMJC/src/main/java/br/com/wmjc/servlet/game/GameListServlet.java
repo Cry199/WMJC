@@ -21,6 +21,6 @@ public class GameListServlet extends HttpServlet
 
         req.setAttribute("games", gameList);
 
-        req.getRequestDispatcher("/Pages/jsp/public/games.jsp").forward(req, resp);
+        req.getRequestDispatcher("/Pages/jsp/public/game/games.jsp").forward(req, resp);
     }
 }

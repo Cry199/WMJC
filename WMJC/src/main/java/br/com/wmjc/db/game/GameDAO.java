@@ -91,4 +91,39 @@ public class GameDAO {
             System.out.println("Erro: " + e.getMessage());
         }
     }
+
+    public void deleteGame(String id) {
+        try (Connection connection = ConnectionPoolConfig.getConnection())
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM JOGOS WHERE ID = ?");
+            preparedStatement.setString(1, id);
+            preparedStatement.execute();
+
+            System.out.println(preparedStatement.toString());
+        }
+        catch (Exception e)
+        {
+            System.out.println("Erro: " + e.getMessage());
+        }
+    }
+
+    public void createGame(String idUser, String name, String nomeDaTabela, String description, String imgGame)
+    {
+        try (Connection connection = ConnectionPoolConfig.getConnection())
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Jogos (iddoUser, NomedoJogo, nomeDaTabalaDojogo, DescricaoDoJogo, CapaDoJogo) VALUES (?, ?, ?, ?, ?)");
+            preparedStatement.setString(1, idUser);
+            preparedStatement.setString(2, name);
+            preparedStatement.setString(3, nomeDaTabela);
+            preparedStatement.setString(4, description);
+            preparedStatement.setString(5, imgGame);
+            preparedStatement.execute();
+
+            System.out.println("Jogo criado com sucesso :)");
+        }
+        catch (Exception e)
+        {
+            System.out.println("Erro: " + e.getMessage());
+        }
+    }
 }

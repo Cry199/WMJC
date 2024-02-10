@@ -43,19 +43,33 @@ public class ProfileCommentDAO
         }
     }
 
-    public void insertComment(String idUser, String idPerfil, String comment)
-    {
-        try (Connection connection = ConnectionPoolConfig.getConnection())
-        {
+    public void insertComment(String idUser, String idPerfil, String comment) {
+        try (Connection connection = ConnectionPoolConfig.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO ComentariosPerfil (iddoUser, idPerfil, Comentario) VALUES (?, ?, ?)");
             preparedStatement.setString(1, idUser);
             preparedStatement.setString(2, idPerfil);
             preparedStatement.setString(3, comment);
             preparedStatement.execute();
 
+            System.out.println("Comentario inserido com sucesso");
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
+    }
 
+    public void deleteComment(String idComment, String idPerfil, String idUser)
+    {
+        System.out.println("ProfileCommentDAO: idComment = " + idComment + ", idPerfil = " + idPerfil + ", idUser = " + idUser);
 
-            connection.close();
+        try (Connection connection = ConnectionPoolConfig.getConnection())
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM ComentariosPerfil WHERE iddoUser = ? AND idPerfil = ? AND Comentario = ?");
+            preparedStatement.setString(1, idUser);
+            preparedStatement.setString(2, idPerfil);
+            preparedStatement.setString(3, idComment);
+            preparedStatement.execute();
+
+            System.out.println("Comentario deletado com sucesso");
         }
         catch (Exception e)
         {

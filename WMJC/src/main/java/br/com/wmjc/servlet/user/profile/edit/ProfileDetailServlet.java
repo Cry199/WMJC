@@ -1,4 +1,4 @@
-package br.com.wmjc.servlet.user.profile;
+package br.com.wmjc.servlet.user.profile.edit;
 
 import br.com.wmjc.db.user.UserLoginDAO;
 import br.com.wmjc.db.user.profile.ProfileCommentDAO;
@@ -26,6 +26,8 @@ public class ProfileDetailServlet extends HttpServlet
     {
         String id = req.getParameter("id");
 
+        System.out.println("ProfileDetailServlet: id = " + id);
+
         ProfileModel profile = new ProfileDAO().buscarPorIdUser(id);
 
         if(profile == null)
@@ -52,3 +54,4 @@ public class ProfileDetailServlet extends HttpServlet
         }
     }
 }
+

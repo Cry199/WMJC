@@ -47,6 +47,6 @@ public class GameDetailsServlet extends HttpServlet
 
         session.setAttribute("comments", commentUserProfiles);
 
-        req.getRequestDispatcher("/Pages/jsp/public/gameDetails.jsp").forward(req, resp);
+        req.getRequestDispatcher("/Pages/jsp/public/game/gameDetails.jsp").forward(req, resp);
     }
 }

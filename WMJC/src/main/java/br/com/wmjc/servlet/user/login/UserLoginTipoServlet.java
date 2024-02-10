@@ -20,25 +20,28 @@ public class UserLoginTipoServlet extends HttpServlet
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        List<UserModel> user = new UserLoginDAO().UsertypeFinder(username, password);
+        UserModel user = new UserLoginDAO().UsertypeFinder(username, password);
 
-        if(!user.isEmpty()) {
-            req.getSession().setAttribute("loggedUser", user.get(0));
+        if(!user.getTipoUser().isEmpty())
+        {
+            req.getSession().setAttribute("loggedUser", user);
         }
 
-        if(user.isEmpty())
+        if(user == null)
         {
             req.setAttribute("message", "Usuario invalido");
         }
-        else if(user.get(0).getTipoUser().equals("admin"))
+        else if(user.getTipoUser().equals("admin"))
         {
-            req.setAttribute("message", "Bem-Vindo " + user.get(0).getEmail() + " você é um administrador");
-        }
-        else if(user.get(0).getTipoUser().equals("user"))
-        {
-            req.setAttribute("message", "Bem-Vindo " + user.get(0).getEmail() + " você é um usuario comum");
-        }
+            req.setAttribute("message", "Bem-Vindo " + user.getEmail() + " você é um administrador");
 
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
+            req.getRequestDispatcher("/Pages/jsp/admin/adminP.jsp").forward(req, resp);
+        }
+        else if(user.getTipoUser().equals("user"))
+        {
+            req.setAttribute("message", "Bem-Vindo " + user.getEmail() + " você é um usuario comum");
+
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
+        }
     }
 }

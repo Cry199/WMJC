@@ -35,8 +35,6 @@ public class GameInfoEditServlet extends HttpServlet {
 
         new GameDAO().uptadeGame(gameName, picGame, gameDescription, id);
 
-        System.out.println(gameDescription);
-
         resp.sendRedirect("/jogo-detalhes?id=" + id);
     }
 
