@@ -15,12 +15,10 @@ public class ProfileDeleteCommentServlet extends HttpServlet
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        String idComment = req.getParameter("idComment");
-        String idPerfil = req.getParameter("idPerfil");
-        String idUser = req.getParameter("idUser");
+        String id = req.getParameter("id");
         String idDoDonoPerfil = req.getParameter("idDoDonoPerfil");
 
-        new ProfileCommentDAO().deleteComment(idComment, idPerfil, idUser);
+        new ProfileCommentDAO().deleteComment(id);
 
         resp.sendRedirect("/perfil-detalhes?id=" + idDoDonoPerfil);
     }
