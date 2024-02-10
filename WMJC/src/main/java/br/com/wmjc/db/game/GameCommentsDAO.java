@@ -28,11 +28,12 @@ public class GameCommentsDAO
 
             while (resultSet.next())
             {
+                BigInteger id = BigInteger.valueOf(resultSet.getInt("id"));
                 BigInteger idUser = BigInteger.valueOf(resultSet.getInt("iddoUser"));
                 BigInteger idJogo = BigInteger.valueOf(resultSet.getInt("idJogo"));
                 String comment = resultSet.getString("Comentario");
 
-                GameCommentsModel gameCommentsModel = new GameCommentsModel(idUser, idJogo, comment);
+                GameCommentsModel gameCommentsModel = new GameCommentsModel(id, idUser, idJogo, comment);
                 comments.add(gameCommentsModel);
             }
 
@@ -64,14 +65,13 @@ public class GameCommentsDAO
         }
     }
 
-    public void deleteComment(String idComment, String idGame, String idUser)
+    public void deleteComment(String id)
     {
         try (Connection connection = ConnectionPoolConfig.getConnection())
         {
-            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM ComentarioDejogo WHERE COMENTARIO = ? AND IDDOUSER = ? AND IDJOGO  = ?");
-            preparedStatement.setString(1, idComment);
-            preparedStatement.setString(2, idUser);
-            preparedStatement.setString(3, idGame);
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM ComentarioDejogo WHERE id = ?");
+            preparedStatement.setString(1, id);
+
             preparedStatement.execute();
 
             System.out.println("GameCommentsDAO: Comentario deletado com sucesso");
