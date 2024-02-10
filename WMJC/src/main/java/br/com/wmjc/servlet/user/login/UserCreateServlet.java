@@ -28,7 +28,7 @@ public class UserCreateServlet extends HttpServlet
         {
             req.setAttribute("message", "Usuario ja cadastrado");
 
-            req.getRequestDispatcher("/Pages/jsp/login/login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/Pages/jsp/public/login/login.jsp").forward(req, resp);
         }
         else if(new UserCreateDAO().CreateUser(nome, sobrenome, senha, email))
         {

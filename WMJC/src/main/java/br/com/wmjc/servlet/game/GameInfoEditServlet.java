@@ -22,7 +22,7 @@ public class GameInfoEditServlet extends HttpServlet {
 
         req.setAttribute("game", game);
 
-        req.getRequestDispatcher("/Pages/jsp/public/gameInfoEdit.jsp").forward(req, resp);
+        req.getRequestDispatcher("/Pages/jsp/private/game/gameInfoEdit.jsp").forward(req, resp);
     }
 
     @Override
@@ -37,6 +37,5 @@ public class GameInfoEditServlet extends HttpServlet {
 
         resp.sendRedirect("/jogo-detalhes?id=" + id);
     }
-
 
 }

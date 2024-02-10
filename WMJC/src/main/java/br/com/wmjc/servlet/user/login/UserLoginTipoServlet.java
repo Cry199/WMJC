@@ -35,7 +35,7 @@ public class UserLoginTipoServlet extends HttpServlet
         {
             req.setAttribute("message", "Bem-Vindo " + user.getEmail() + " você é um administrador");
 
-            req.getRequestDispatcher("/Pages/jsp/admin/adminP.jsp").forward(req, resp);
+            req.getRequestDispatcher("/Pages/jsp/private/admin/adminP.jsp").forward(req, resp);
         }
         else if(user.getTipoUser().equals("user"))
         {

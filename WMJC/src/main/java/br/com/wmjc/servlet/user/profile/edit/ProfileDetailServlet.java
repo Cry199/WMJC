@@ -50,7 +50,7 @@ public class ProfileDetailServlet extends HttpServlet
             session.setAttribute("profile", profile);
             session.setAttribute("comments", commentUserProfiles);
 
-            req.getRequestDispatcher("/Pages/jsp/profile/profileDetails.jsp").forward(req, resp);
+            req.getRequestDispatcher("/Pages/jsp/public/profile/profileDetails.jsp").forward(req, resp);
         }
     }
 }

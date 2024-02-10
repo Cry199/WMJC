@@ -43,7 +43,7 @@
     <div class="content">
         <h1>WELCOME TO WMJC</h1>
 
-        <a href="WEB-INF/Pages/Jsp/public/games.jsp">
+        <a href="WEB-INF/Pages/Jsp/public/game/games.jsp">
             <form action="/Jogos" method="get">
                 <button class="" type="submit">Jogos</button>
             </form>
