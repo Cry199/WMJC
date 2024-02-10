@@ -20,7 +20,7 @@
     <div class="menu">
         <a href="/index">Home</a>
         <a href="/Jogos">Jogos</a>
-        <a href="#">Login</a>
+        <a href="Pages/jsp/public/login/login.jsp">Login</a>
         <a href="/perfil-detalhes?id=${sessionScope.loggedUser.id}">${sessionScope.loggedUser.username}</a>
         <a href="/logout">Sair</a>
     </div>
@@ -31,7 +31,7 @@
     <div class="menu">
         <a href="/index">Home</a>
         <a href="/Jogos">Jogos</a>
-        <a href="#">Login</a>
+        <a href="Pages/jsp/public/login/login.jsp">Login</a>
         <a href=""></a>
         <a href="#"></a>
     </div>
