@@ -109,4 +109,20 @@ public class GameGeneralModel
     public void setImage(String image) {
         this.image = image;
     }
+
+    @Override
+    public String toString()
+    {
+        return "GameGeneralModel{" +
+                "id=" + id +
+                ", texto='" + texto + '\'' +
+                ", op1='" + op1 + '\'' +
+                ", ref1='" + ref1 + '\'' +
+                ", op2='" + op2 + '\'' +
+                ", ref2='" + ref2 + '\'' +
+                ", op3='" + op3 + '\'' +
+                ", ref3='" + ref3 + '\'' +
+                ", image='" + image + '\'' +
+                '}';
+    }
 }
