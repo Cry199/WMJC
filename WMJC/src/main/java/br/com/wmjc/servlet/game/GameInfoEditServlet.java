@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/gameInfoEdit")
-public class GameInfoEditServlet extends HttpServlet {
-
+public class GameInfoEditServlet extends HttpServlet
+{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
@@ -37,5 +37,4 @@ public class GameInfoEditServlet extends HttpServlet {
 
         resp.sendRedirect("/jogo-detalhes?id=" + id);
     }
-
 }
