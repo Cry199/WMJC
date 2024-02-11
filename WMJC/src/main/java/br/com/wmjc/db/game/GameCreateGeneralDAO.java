@@ -29,7 +29,8 @@ public class GameCreateGeneralDAO
             if (isTableExists(nameTable))
             {
                 System.out.println("Tabela '" + nameTable + "' já existe.");
-                return false;
+
+                return true;
             }
             else
             {
@@ -65,11 +66,11 @@ public class GameCreateGeneralDAO
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, gameGeneralModel.getTexto());
             preparedStatement.setString(2, gameGeneralModel.getOp1());
-            preparedStatement.setInt(3, gameGeneralModel.getRef1());
+            preparedStatement.setString(3, gameGeneralModel.getRef1());
             preparedStatement.setString(4, gameGeneralModel.getOp2());
-            preparedStatement.setInt(5, gameGeneralModel.getRef2());
+            preparedStatement.setString(5, gameGeneralModel.getRef2());
             preparedStatement.setString(6, gameGeneralModel.getOp3());
-            preparedStatement.setInt(7, gameGeneralModel.getRef3());
+            preparedStatement.setString(7, gameGeneralModel.getRef3());
             preparedStatement.setString(8, gameGeneralModel.getImage());
             preparedStatement.executeUpdate();
 
