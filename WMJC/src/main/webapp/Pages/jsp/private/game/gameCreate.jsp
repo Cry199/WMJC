@@ -16,50 +16,50 @@
     <link type="text/css" rel="stylesheet" href="">
 </head>
 <body>
-<c:if test="${sessionScope.loggedUser != null}">
-    <div class="menu">
-        <a href="/index">Home</a>
-        <a href="/Jogos">Jogos</a>
-        <a href="Pages/jsp/public/login/login.jsp">Login</a>
-        <a href="/perfil-detalhes?id=${sessionScope.loggedUser.id}">${sessionScope.loggedUser.username}</a>
-        <a href="/logout">Sair</a>
-    </div>
-    </div>
-</c:if>
+    <c:if test="${sessionScope.loggedUser != null}">
+        <div class="menu">
+            <a href="/index">Home</a>
+            <a href="/Jogos">Jogos</a>
+            <a href="Pages/jsp/public/login/login.jsp">Login</a>
+            <a href="/perfil-detalhes?id=${sessionScope.loggedUser.id}">${sessionScope.loggedUser.username}</a>
+            <a href="/logout">Sair</a>
+        </div>
+        </div>
+    </c:if>
 
-<c:if test="${sessionScope.loggedUser == null}">
-    <div class="menu">
-        <a href="/index">Home</a>
-        <a href="/Jogos">Jogos</a>
-        <a href="Pages/jsp/public/login/login.jsp">Login</a>
-        <a href=""></a>
-        <a href="#"></a>
-    </div>
-    </div>
-</c:if>
+    <c:if test="${sessionScope.loggedUser == null}">
+        <div class="menu">
+            <a href="/index">Home</a>
+            <a href="/Jogos">Jogos</a>
+            <a href="Pages/jsp/public/login/login.jsp">Login</a>
+            <a href=""></a>
+            <a href="#"></a>
+        </div>
+        </div>
+    </c:if>
 
-<h1>Criar Game</h1>
+    <h1>Criar Game</h1>
 
-<form action="/create-game" method="post">
+    <form action="/create-game" method="post">
 
-    <label for="nomeGame">Nome do Jogo: </label>
-    <input type="text" id="nomeGame" name="nomeGame">
+        <label for="nomeGame">Nome do Jogo: </label>
+        <input type="text" id="nomeGame" name="nomeGame">
 
-    <br>
+        <br>
 
-    <label for="description">Descrição do Jogo: </label>
-    <input type="text" id="description" name="description">
+        <label for="description">Descrição do Jogo: </label>
+        <input type="text" id="description" name="description">
 
-    <br>
+        <br>
 
-    <label for="imgGame">Imagem do Jogo: </label>
-    <input type="text" id="imgGame" name="imgGame">
+        <label for="imgGame">Imagem do Jogo: </label>
+        <input type="text" id="imgGame" name="imgGame">
 
-    <br>
+        <br>
 
-    <input type="hidden" id="idUser" name="idUser" value="${sessionScope.idDoUser}">
+        <input type="hidden" id="idUser" name="idUser" value="${sessionScope.idDoUser}">
 
-    <button type="submit">Criar jogo</button>
-</form>
+        <button type="submit">Criar jogo</button>
+    </form>
 </body>
 </html>
