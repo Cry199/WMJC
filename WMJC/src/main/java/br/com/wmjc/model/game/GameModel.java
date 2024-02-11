@@ -66,4 +66,10 @@ public class GameModel {
     public void setBannerGamer(String bannerGamer) {
         this.bannerGamer = bannerGamer;
     }
+
+    @Override
+    public String toString()
+    {
+        return "GameModel{" + "id=" + id + ", idUser=" + idUser + ", nameGame=" + nameGame + ", nameTable=" + nameTable + ", descGame=" + descGame + ", bannerGamer=" + bannerGamer + '}';
+    }
 }
