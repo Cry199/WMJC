@@ -49,6 +49,14 @@
 
         <h1>${sessionScope.profile.profileName}</h1>
 
+        <h1>Atividade recente</h1>
+
+        <c:forEach var="activity" items="${}">
+            <div>
+
+            </div>
+        </c:forEach>
+
         <c:if test="${sessionScope.loggedUser != null}">
             <form action="/profileComment" method="post">
                 <input type="text" name="comment" placeholder="Comente aqui">
