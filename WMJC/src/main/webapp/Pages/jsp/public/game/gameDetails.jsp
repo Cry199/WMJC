@@ -25,7 +25,6 @@
             <a href="/perfil-detalhes?id=${sessionScope.loggedUser.id}">${sessionScope.loggedUser.username}</a>
             <a href="/logout">Sair</a>
         </div>
-        </div>
     </c:if>
 
     <c:if test="${sessionScope.loggedUser == null}">
@@ -35,7 +34,6 @@
             <a href="Pages/jsp/public/login/login.jsp">Login</a>
             <a href=""></a>
             <a href="#"></a>
-        </div>
         </div>
     </c:if>
 
@@ -48,6 +46,14 @@
 
     <c:if test="${sessionScope.loggedUser != null && sessionScope.loggedUser.id == sessionScope.game.idUser}">
         <a href="/gameListAtual?nameTable=${sessionScope.game.nameTable}">Criar ou Editar o Game</a>
+    </c:if>
+
+    <c:if test="${sessionScope.nameTable == sessionScope.game.nameTable}">
+        <a href="/gamePlay?nameTable=${sessionScope.nameTable}&id=1">Jogar</a>
+    </c:if>
+
+    <c:if test="${sessionScope.nameTable != sessionScope.game.nameTable}">
+        <h2>${sessionScope.nameTable}</h2>
     </c:if>
 
     <h2>Descrição:</h2>
