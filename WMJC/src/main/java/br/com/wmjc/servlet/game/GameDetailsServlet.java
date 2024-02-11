@@ -2,6 +2,7 @@ package br.com.wmjc.servlet.game;
 
 import br.com.wmjc.db.game.GameCommentsDAO;
 import br.com.wmjc.db.game.GameDAO;
+import br.com.wmjc.db.game.GamePlayDAO;
 import br.com.wmjc.db.user.UserLoginDAO;
 import br.com.wmjc.db.user.profile.ProfileCommentDAO;
 import br.com.wmjc.db.user.profile.ProfileDAO;
@@ -44,8 +45,16 @@ public class GameDetailsServlet extends HttpServlet
 
         HttpSession session = req.getSession();
         session.setAttribute("game", game);
-
         session.setAttribute("comments", commentUserProfiles);
+
+        if(new GamePlayDAO().isTableExists(game.getNameTable()))
+        {
+            session.setAttribute("nameTable", game.getNameTable());
+        }
+        else
+        {
+            session.setAttribute("nameTable", "Em breve");
+        }
 
         req.getRequestDispatcher("/Pages/jsp/public/game/gameDetails.jsp").forward(req, resp);
     }
