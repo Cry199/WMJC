@@ -30,35 +30,43 @@
         </div>
     </c:if>
 
-    <script>
-        function submitForm(button)
-        {
-            var form = document.getElementById('myForm');
-            form.but.value = button.value;
-            form.submit();
-        }
-    </script>
+    <div class="image">
+        <img src="${Jogo.image}" alt="">
+    </div>
 
-    <form id="myForm" action="/gamePlay" method="get">
-        <div class="image">
-            <img src="${Jogo.image}" alt="">
-        </div>
+    <div class="Textos">
+        <h1 class="texto">${Jogo.texto}</h1>
+    </div>
 
-        <div class="Textos">
-            <h1 class="texto">${Jogo.texto}</h1>
-        </div>
+    <form action="/gamePlay" id="" method="post">
+
+        <input type="hidden" name="id" value="${Jogo.ref1}">
+        <input type="hidden" class="nameTable" name="nameTable" value="${sessionScope.tabelaGame}">
 
         <div>
-            <button class="butt" type="button" value="${Jogo.ref1}" onclick="submitForm(this)">${Jogo.op1}</button>
-        </div>
-
-        <div>
-            <button class="butt" type="button" value="${Jogo.ref2}" onclick="submitForm(this)">${Jogo.op2}</button>
-        </div>
-
-        <div>
-            <button class="butt" type="button" value="${Jogo.ref3}" onclick="submitForm(this)">${Jogo.op3}</button>
+            <button type="submit">${Jogo.op1}</button>
         </div>
     </form>
+
+    <form action="/gamePlay" id="" method="post">
+
+        <input type="hidden" name="id" value="${Jogo.ref2}">
+        <input type="hidden" class="nameTable" name="nameTable" value="${sessionScope.tabelaGame}">
+
+        <div>
+            <button type="submit">${Jogo.op2}</button>
+        </div>
+    </form>
+
+    <form action="/gamePlay" id="" method="post">
+
+        <input type="hidden" name="id" value="${Jogo.ref3}">
+        <input type="hidden" class="nameTable" name="nameTable" value="${sessionScope.tabelaGame}">
+
+        <div>
+            <button type="submit">${Jogo.op3}</button>
+        </div>
+    </form>
+
 </body>
 </html>
