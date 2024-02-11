@@ -13,6 +13,8 @@ public class UserModel
 
     private String username;
 
+    public UserModel() {}
+
     public UserModel(String username, String password, String tipoUser) {
         this.email = username;
         this.senha = password;
@@ -81,6 +83,19 @@ public class UserModel
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", sobrenome='" + sobrenome + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                ", tipoUser='" + tipoUser + '\'' +
+                ", username='" + username + '\'' +
+                '}';
     }
 }
 
