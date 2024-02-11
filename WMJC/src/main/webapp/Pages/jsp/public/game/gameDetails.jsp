@@ -46,6 +46,10 @@
         <a href="/gameInfoEdit?id=${sessionScope.loggedUser.id}">Editar Jogo</a>
     </c:if>
 
+    <c:if test="${sessionScope.loggedUser != null && sessionScope.loggedUser.id == sessionScope.game.idUser}">
+        <a href="/gameListAtual?nameTable=${sessionScope.game.nameTable}">Criar ou Editar o Game</a>
+    </c:if>
+
     <h2>Descrição:</h2>
     <h3>${sessionScope.game.descGame}</h3>
 
