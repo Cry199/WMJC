@@ -58,5 +58,9 @@ public class ProfileComments {
         this.comment = comment;
     }
 
+    @Override
+    public String toString() {
+        return "ProfileComments{id=" + this.id + ", idUser=" + this.idUser + ", idPerfil=" + this.idPerfil + ", comment='" + this.comment + '\'' + '}';
+    }
 }
 
