@@ -66,4 +66,14 @@ public class ProfileModel {
         this.idDoUser = idDoUser;
     }
 
+    @Override
+    public String toString() {
+        return "ProfileModel{" +
+                "idProfile=" + idProfile +
+                ", idDoUser=" + idDoUser +
+                ", profileName='" + profileName + '\'' +
+                ", picProfile='" + picProfile + '\'' +
+                ", typeUser='" + typeUser + '\'' +
+                '}';
+    }
 }

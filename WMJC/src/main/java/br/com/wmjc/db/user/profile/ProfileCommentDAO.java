@@ -8,6 +8,7 @@ import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,11 +25,12 @@ public class ProfileCommentDAO
 
             while (resultSet.next())
             {
+                BigInteger id = resultSet.getBigDecimal("ID").toBigInteger();
                 Integer idUser = resultSet.getInt("iddoUser");
                 Integer iPerfil = resultSet.getInt("idPerfil");
                 String comment = resultSet.getString("Comentario");
 
-                ProfileComments profileComments = new ProfileComments(idUser, iPerfil, comment);
+                ProfileComments profileComments = new ProfileComments(id, idUser, iPerfil, comment);
                 comments.add(profileComments);
             }
 
@@ -57,16 +59,12 @@ public class ProfileCommentDAO
         }
     }
 
-    public void deleteComment(String idComment, String idPerfil, String idUser)
+    public void deleteComment(String id)
     {
-        System.out.println("ProfileCommentDAO: idComment = " + idComment + ", idPerfil = " + idPerfil + ", idUser = " + idUser);
-
         try (Connection connection = ConnectionPoolConfig.getConnection())
         {
-            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM ComentariosPerfil WHERE iddoUser = ? AND idPerfil = ? AND Comentario = ?");
-            preparedStatement.setString(1, idUser);
-            preparedStatement.setString(2, idPerfil);
-            preparedStatement.setString(3, idComment);
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM ComentariosPerfil WHERE id = ?");
+            preparedStatement.setString(1, id);
             preparedStatement.execute();
 
             System.out.println("Comentario deletado com sucesso");

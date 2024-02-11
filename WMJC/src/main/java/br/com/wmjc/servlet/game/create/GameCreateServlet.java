@@ -1,4 +1,4 @@
-package br.com.wmjc.servlet.game;
+package br.com.wmjc.servlet.game.create;
 
 import br.com.wmjc.db.game.GameDAO;
 

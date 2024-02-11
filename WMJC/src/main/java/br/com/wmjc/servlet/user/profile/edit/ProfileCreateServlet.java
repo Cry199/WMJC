@@ -29,7 +29,7 @@ public class ProfileCreateServlet extends HttpServlet
 
             new ProfileDAO().createProfile(id, profileName, picProfile);
 
-            req.setAttribute("message", "Perfil criado com sucesso");
+            req.getRequestDispatcher("/Pages/jsp/private/profile/profileInfoEdit.jsp").forward(req, resp);
         }
     }
 }

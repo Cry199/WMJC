@@ -22,7 +22,7 @@ public class ProfileInfoEditServlet extends HttpServlet
 
         req.setAttribute("profile", profile);
 
-        req.getRequestDispatcher("/Pages/jsp/profile/profileInfoEdit.jsp").forward(req, resp);
+        req.getRequestDispatcher("/Pages/jsp/private/profile/profileInfoEdit.jsp").forward(req, resp);
     }
 
     @Override

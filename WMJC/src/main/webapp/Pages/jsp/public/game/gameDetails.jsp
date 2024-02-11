@@ -21,10 +21,9 @@
         <div class="menu">
             <a href="/index">Home</a>
             <a href="/Jogos">Jogos</a>
-            <a href="Pages/jsp/login/login.jsp">Login</a>
+            <a href="Pages/jsp/public/login/login.jsp">Login</a>
             <a href="/perfil-detalhes?id=${sessionScope.loggedUser.id}">${sessionScope.loggedUser.username}</a>
             <a href="/logout">Sair</a>
-        </div>
         </div>
     </c:if>
 
@@ -32,10 +31,9 @@
         <div class="menu">
             <a href="/index">Home</a>
             <a href="/Jogos">Jogos</a>
-            <a href="Pages/jsp/login/login.jsp">Login</a>
+            <a href="Pages/jsp/public/login/login.jsp">Login</a>
             <a href=""></a>
             <a href="#"></a>
-        </div>
         </div>
     </c:if>
 
@@ -44,6 +42,18 @@
 
     <c:if test="${sessionScope.loggedUser != null && sessionScope.loggedUser.id == sessionScope.game.idUser}">
         <a href="/gameInfoEdit?id=${sessionScope.loggedUser.id}">Editar Jogo</a>
+    </c:if>
+
+    <c:if test="${sessionScope.loggedUser != null && sessionScope.loggedUser.id == sessionScope.game.idUser}">
+        <a href="/gameListAtual?nameTable=${sessionScope.game.nameTable}">Criar ou Editar o Game</a>
+    </c:if>
+
+    <c:if test="${sessionScope.nameTable == sessionScope.game.nameTable}">
+        <a href="/gamePlay?nameTable=${sessionScope.nameTable}&id=1">Jogar</a>
+    </c:if>
+
+    <c:if test="${sessionScope.nameTable != sessionScope.game.nameTable}">
+        <h2>${sessionScope.nameTable}</h2>
     </c:if>
 
     <h2>Descrição:</h2>
@@ -66,8 +76,7 @@
             <p>${commentUserProfile.comment.commentGame}</p>
             <c:if test="${sessionScope.loggedUser.id == commentUserProfile.userProfile.idDoUser || sessionScope.loggedUser.id == sessionScope.game.idUser}">
                 <form action="/gameDeleteComment" method="post">
-                    <input type="hidden" name="idComment" value="${commentUserProfile.comment.commentGame}">
-                    <input type="hidden" name="idPerfil" value="${commentUserProfile.userProfile.idDoUser}">
+                    <input type="hidden" name="id" value="${commentUserProfile.comment.id}">
                     <input type="hidden" name="idGame" value="${sessionScope.game.id}">
                     <button type="submit">Deletar</button>
                 </form>

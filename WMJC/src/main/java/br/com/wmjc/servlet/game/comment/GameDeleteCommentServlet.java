@@ -17,10 +17,9 @@ public class GameDeleteCommentServlet extends HttpServlet
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         String idGame = req.getParameter("idGame");
-        String idPerfil = req.getParameter("idPerfil");
-        String idComment = req.getParameter("idComment");
+        String id = req.getParameter("id");
 
-        new GameCommentsDAO().deleteComment(idComment, idGame, idPerfil);
+        new GameCommentsDAO().deleteComment(id);
 
         resp.sendRedirect("/jogo-detalhes?id=" + idGame);
     }

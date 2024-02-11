@@ -10,8 +10,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameDAO {
-
+public class GameDAO
+{
     public List<GameModel> listandoGames() {
 
         try (Connection connection = ConnectionPoolConfig.getConnection()) {

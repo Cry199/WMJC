@@ -18,4 +18,12 @@ public class GameCommentUserProfileModel
     public ProfileModel getUserProfile() {
         return userProfile;
     }
+
+    @Override
+    public String toString() {
+        return "GameCommentUserProfileModel{" +
+                "comment=" + comment +
+                ", userProfile=" + userProfile +
+                '}';
+    }
 }

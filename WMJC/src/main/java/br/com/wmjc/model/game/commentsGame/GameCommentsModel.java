@@ -57,4 +57,14 @@ public class GameCommentsModel
     public void setCommentGame(String commentGame) {
         this.commentGame = commentGame;
     }
+
+    @Override
+    public String toString() {
+        return "GameCommentsModel{" +
+                "id=" + id +
+                ", idUser=" + idUser +
+                ", idGame=" + idGame +
+                ", commentGame='" + commentGame + '\'' +
+                '}';
+    }
 }
