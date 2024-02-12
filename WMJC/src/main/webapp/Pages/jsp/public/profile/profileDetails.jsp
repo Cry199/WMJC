@@ -51,10 +51,11 @@
 
         <h1>Atividade recente</h1>
 
-        <c:forEach var="activity" items="${}">
-            <div>
-
-            </div>
+        <c:forEach var="activity" items="${activitys}">
+                <div class="">
+                    <img src="${activity.bannerGamer}" alt="" width="100px">
+                    <h2>${activity.nameGame}</h2>
+                </div>
         </c:forEach>
 
         <c:if test="${sessionScope.loggedUser != null}">
