@@ -45,9 +45,39 @@ public class GameListNameTableDAO
         }
         catch (Exception e)
         {
-            System.out.println("GameListNameTableDAO - Erro ao listar tabelas GameListNameTableDAO: " + e.getMessage());
+            System.out.println("GameListNameTableDAO - Erro ao listar tabelas: " + e.getMessage());
 
             return null;
         }
     }
+
+    public int listJogos(String nameTable)
+    {
+        String sql = "SELECT id FROM JOGOS WHERE NOMEDATABALADOJOGO = ?";
+
+        try(Connection connection = ConnectionPoolConfig.getConnection())
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, nameTable);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            int id = 0;
+
+            while (resultSet.next())
+            {
+                id = preparedStatement.getResultSet().getInt("id");
+            }
+
+            preparedStatement.close();
+
+            return id;
+        }
+        catch (Exception e)
+        {
+            System.out.println("GameListNameTableDAO - Erro ao listar tabelas: " + e.getMessage());
+
+            return 0;
+        }
+    }
+
 }
