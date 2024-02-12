@@ -21,13 +21,14 @@ public class UserCreateDAO {
             preparedStatement.setString(5, "user");
             preparedStatement.execute();
 
+            preparedStatement.close();
             connection.close();
 
             return true;
         }
         catch (Exception e)
         {
-            System.out.println("Erro ao fazer o cadastro " + e.getMessage());
+            System.out.println("UserCreateDAO - Erro ao fazer o cadastro " + e.getMessage());
         }
 
         return false;
@@ -49,7 +50,7 @@ public class UserCreateDAO {
         }
         catch (Exception e)
         {
-            System.out.println("Erro ao verificar usuario: " + e.getMessage());
+            System.out.println("UserCreateDAO - Erro ao verificar usuario: " + e.getMessage());
         }
         return false;
     }

@@ -1,5 +1,6 @@
 package br.com.wmjc.model.game.historico;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class GameHistoricoModel
@@ -7,11 +8,17 @@ public class GameHistoricoModel
     private int id;
     private int idUser;
     private int idGame;
-    private Date data;
+    private DateTimeFormatter data;
 
     public GameHistoricoModel() {}
 
-    public GameHistoricoModel(int id, int idUser, int idGame, Date data)
+    public GameHistoricoModel(int idUser, int idGame)
+    {
+        this.idUser = idUser;
+        this.idGame = idGame;
+    }
+
+    public GameHistoricoModel(int id, int idUser, int idGame, DateTimeFormatter data)
     {
         this.id = id;
         this.idUser = idUser;
@@ -49,12 +56,12 @@ public class GameHistoricoModel
         this.idGame = idGame;
     }
 
-    public Date getData()
+    public DateTimeFormatter getData()
     {
         return data;
     }
 
-    public void setData(Date data)
+    public void setData(DateTimeFormatter data)
     {
         this.data = data;
     }

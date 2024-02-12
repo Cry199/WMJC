@@ -3,12 +3,10 @@ package br.com.wmjc.db.user.profile;
 import br.com.wmjc.config.ConnectionPoolConfig;
 import br.com.wmjc.model.user.profile.Comments.ProfileComments;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,19 +32,21 @@ public class ProfileCommentDAO
                 comments.add(profileComments);
             }
 
-            System.out.println("Lista de comentarios: " + comments);
+            System.out.println("ProfileCommentDAO - Lista de comentarios: " + comments);
             connection.close();
 
             return comments;
         }
         catch (Exception e)
         {
-            System.out.println("Erro: " + e.getMessage()); return null;
+            System.out.println("ProfileCommentDAO - Erro: " + e.getMessage()); return null;
         }
     }
 
-    public void insertComment(String idUser, String idPerfil, String comment) {
-        try (Connection connection = ConnectionPoolConfig.getConnection()) {
+    public void insertComment(String idUser, String idPerfil, String comment)
+    {
+        try (Connection connection = ConnectionPoolConfig.getConnection())
+        {
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO ComentariosPerfil (iddoUser, idPerfil, Comentario) VALUES (?, ?, ?)");
             preparedStatement.setString(1, idUser);
             preparedStatement.setString(2, idPerfil);
@@ -54,8 +54,9 @@ public class ProfileCommentDAO
             preparedStatement.execute();
 
             System.out.println("Comentario inserido com sucesso");
-        } catch (Exception e) {
-            System.out.println("Erro: " + e.getMessage());
+        }
+        catch (Exception e) {
+            System.out.println("ProfileCommentDAO - Erro: " + e.getMessage());
         }
     }
 
@@ -68,10 +69,12 @@ public class ProfileCommentDAO
             preparedStatement.execute();
 
             System.out.println("Comentario deletado com sucesso");
+
+            preparedStatement.close();
         }
         catch (Exception e)
         {
-            System.out.println("Erro: " + e.getMessage());
+            System.out.println("ProfileCommentDAO - Erro: " + e.getMessage());
         }
     }
 }

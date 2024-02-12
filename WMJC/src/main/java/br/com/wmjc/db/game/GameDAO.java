@@ -12,9 +12,10 @@ import java.util.List;
 
 public class GameDAO
 {
-    public List<GameModel> listandoGames() {
-
-        try (Connection connection = ConnectionPoolConfig.getConnection()) {
+    public List<GameModel> listandoGames()
+    {
+        try (Connection connection = ConnectionPoolConfig.getConnection())
+        {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM JOGOS");
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -35,15 +36,19 @@ public class GameDAO
 
             System.out.println("Todos os jogos listados com sucesso :)");
 
+            preparedStatement.close();
+            connection.close();
+
             return lista;
         }
         catch (Exception e)
         {
-            System.out.println("Erro: " + e.getMessage()); return null;
+            System.out.println("GameDAO - Erro: " + e.getMessage()); return null;
         }
     }
 
-    public GameModel buscandoGamePorId(String id) {
+    public GameModel buscandoGamePorId(String id)
+    {
         try (Connection connection = ConnectionPoolConfig.getConnection())
         {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM JOGOS WHERE ID = ?");
@@ -64,10 +69,15 @@ public class GameDAO
                 game = new GameModel(idJogo, idUser, nomeJogo, tabJogo, descriJogo, capaJogo);
             }
             System.out.println("Jogo encontrado com sucesso :)");
+
+            preparedStatement.close();
+            connection.close();
+
             return game;
         }
-        catch (Exception e) {
-            System.out.println("Erro: " + e.getMessage());
+        catch (Exception e)
+        {
+            System.out.println("GameDAO - Erro: " + e.getMessage());
             return null;
 
         }
@@ -83,27 +93,28 @@ public class GameDAO
             preparedStatement.setString(3, gameDescription);
             preparedStatement.setString(4, id);
             preparedStatement.executeUpdate();
-            System.out.println(preparedStatement.toString());
 
+            preparedStatement.close();
         }
         catch (Exception e)
         {
-            System.out.println("Erro: " + e.getMessage());
+            System.out.println("GameDAO - Erro: " + e.getMessage());
         }
     }
 
-    public void deleteGame(String id) {
+    public void deleteGame(String id)
+    {
         try (Connection connection = ConnectionPoolConfig.getConnection())
         {
             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM JOGOS WHERE ID = ?");
             preparedStatement.setString(1, id);
             preparedStatement.execute();
 
-            System.out.println(preparedStatement.toString());
+            preparedStatement.close();
         }
         catch (Exception e)
         {
-            System.out.println("Erro: " + e.getMessage());
+            System.out.println("GameDAO - Erro: " + e.getMessage());
         }
     }
 
@@ -120,10 +131,12 @@ public class GameDAO
             preparedStatement.execute();
 
             System.out.println("Jogo criado com sucesso :)");
+
+            preparedStatement.close();
         }
         catch (Exception e)
         {
-            System.out.println("Erro: " + e.getMessage());
+            System.out.println("GameDAO - Erro: " + e.getMessage());
         }
     }
 }

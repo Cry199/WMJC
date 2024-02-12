@@ -34,7 +34,7 @@ public class GameCreateGeneralDAO
             }
             else
             {
-                System.out.println("Erro na criação da tabela: " + e.getMessage());
+                System.out.println("GameCreateGeneralDAO - Erro na criação da tabela: " + e.getMessage());
                 return false;
             }
         }
@@ -75,10 +75,12 @@ public class GameCreateGeneralDAO
             preparedStatement.executeUpdate();
 
             System.out.println("Insert: " + preparedStatement);
+
+            preparedStatement.close();
         }
         catch (Exception e)
         {
-            System.out.println("Erro: " + e.getMessage());
+            System.out.println("GameCreateGeneralDAO - Erro: " + e.getMessage());
         }
     }
 }

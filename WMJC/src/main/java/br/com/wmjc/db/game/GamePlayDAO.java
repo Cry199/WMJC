@@ -6,8 +6,6 @@ import br.com.wmjc.model.game.GameGeneralModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 
 public class GamePlayDAO
 {
@@ -36,6 +34,7 @@ public class GamePlayDAO
                 gameGeneralModel.setImage(preparedStatement.getResultSet().getString("image"));
             }
 
+            preparedStatement.close();
             connection.close();
 
             return gameGeneralModel;
@@ -56,10 +55,15 @@ public class GamePlayDAO
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.executeQuery();
 
+            preparedStatement.close();
+            connection.close();
+
             return true;
         }
         catch (Exception e)
         {
+            System.out.println("GamePlayDAO - Erro: " + e.getMessage());
+
             return false;
         }
     }

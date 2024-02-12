@@ -38,13 +38,14 @@ public class GameListNameTableDAO
                 lista.add(gameGeneralModel);
             }
 
+            preparedStatement.close();
             connection.close();
 
             return lista;
         }
         catch (Exception e)
         {
-            System.out.println("Erro ao listar tabelas GameListNameTableDAO: " + e.getMessage());
+            System.out.println("GameListNameTableDAO - Erro ao listar tabelas GameListNameTableDAO: " + e.getMessage());
 
             return null;
         }
