@@ -1,5 +1,6 @@
 package br.com.wmjc.servlet.game;
 
+import br.com.wmjc.db.game.GameContadorDAO;
 import br.com.wmjc.db.game.GamePlayDAO;
 import br.com.wmjc.model.game.GameGeneralModel;
 
