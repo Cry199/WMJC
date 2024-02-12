@@ -49,7 +49,18 @@
     </c:if>
 
     <c:if test="${sessionScope.nameTable == sessionScope.game.nameTable}">
-        <a href="/gamePlay?nameTable=${sessionScope.nameTable}&id=1">Jogar</a>
+        <a href="/gamePlay?nameTable=${sessionScope.nameTable}&id=1" onclick="enviarDadosHistorico(${sessionScope.loggedUser.id}, ${sessionScope.game.id});return true;">Jogar</a>
+    </c:if>
+
+    <c:if test="${sessionScope.loggedUser != null}">
+        <script>
+            function enviarDadosHistorico(idUser, idGame) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("POST", "/GameHistoricoServlet", true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send("idUser=" + idUser + "&idGame=" + idGame);
+            }
+        </script>
     </c:if>
 
     <c:if test="${sessionScope.nameTable != sessionScope.game.nameTable}">
