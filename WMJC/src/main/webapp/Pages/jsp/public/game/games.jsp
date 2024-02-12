@@ -12,13 +12,16 @@
     <meta charset="UTF-8">
     <title>WMJC - Games</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Pages/css/gameStyles.css">
+    <link rel="stylesheet" href="/Pages/css/gameMenuStyles.css">
 </head>
 <body>
 
-    <div>
+    <div class="header">
         <c:if test="${sessionScope.loggedUser != null}">
             <div class="menu">
+
+                <h2 class="imgLogo">Jogos</h2>
+
                 <a href="/index">Home</a>
                 <a href="/Jogos">Jogos</a>
                 <a href="Pages/jsp/public/login/login.jsp">Login</a>
@@ -30,27 +33,34 @@
 
         <c:if test="${sessionScope.loggedUser == null}">
             <div class="menu">
+
+                <h2 class="imgLogo">Jogos</h2>
+
                 <a href="/index">Home</a>
                 <a href="/Jogos">Jogos</a>
                 <a href="Pages/jsp/public/login/login.jsp">Login</a>
-                <a href="#"></a>
-                <a href="#"></a>
             </div>
         </c:if>
     </div>
 
     <span>${requestScope.message}</span>
 
-    <h2>Jogos</h2>
-    <div class="cont">
-        <c:forEach var="game" items="${games}">
+
+    <div class="content">
+        <div class="cont">
+            <c:forEach var="game" items="${games}">
                 <div class="igmDiv" data-game-id="${game.id}" style="background-image: url(${game.bannerGamer});">
-                    <div class="">
+                    <div>
                         <h2>${game.nameGame}</h2>
                         <p>${game.descGame}</p>
                     </div>
                 </div>
-        </c:forEach>
+            </c:forEach>
+        </div>
+    </div>
+
+    <div class="footerGame">
+        <p>WMJC 2023</p>
     </div>
 
     <script>
