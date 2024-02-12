@@ -1,5 +1,6 @@
 package br.com.wmjc.servlet.game.create;
 
+import br.com.wmjc.db.game.GameContadorDAO;
 import br.com.wmjc.db.game.GameCreateGeneralDAO;
 import br.com.wmjc.db.game.GameListNameTableDAO;
 import br.com.wmjc.model.game.GameGeneralModel;
@@ -27,8 +28,6 @@ public class GameCreateFinalServlet extends HttpServlet
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        System.out.println(request.getParameterNames());
-
         String nameTable = request.getParameter("nameTable");
 
         String texto = request.getParameter("texto");
@@ -47,6 +46,10 @@ public class GameCreateFinalServlet extends HttpServlet
             new GameCreateGeneralDAO().insertGameGeneral(gameGeneralModel, nameTable);
 
             List<GameGeneralModel> gameList = new GameListNameTableDAO().listGameGeneral(nameTable);
+
+            int id = new GameListNameTableDAO().listJogos(nameTable);
+
+            new GameContadorDAO().insertContador(id);
 
             request.setAttribute("gameList", gameList);
 
