@@ -6,8 +6,11 @@ import br.com.wmjc.model.game.historico.GameHistoricoModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameHistoricoDAO
 {
@@ -32,6 +35,39 @@ public class GameHistoricoDAO
         catch (Exception e)
         {
             System.out.println("GameHistoricoDAO - Erro: " + e.getMessage());
+        }
+    }
+
+    public List<Integer> listarHistoricoPorUsuario(String idUsuario)
+    {
+        String sql = "SELECT ID_DO_JOGO FROM HISTORICO_DE_JOGADAS\n" +
+                "WHERE ID_USUARIO = ?\n" +
+                "ORDER BY DATA_HORA DESC\n" +
+                "LIMIT 3;";
+
+        try (Connection connection = ConnectionPoolConfig.getConnection())
+        {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, idUsuario);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            List<Integer> list = new ArrayList<>();
+
+            while (resultSet.next())
+            {
+                list.add(preparedStatement.getResultSet().getInt("ID_DO_JOGO"));
+            }
+
+            preparedStatement.close();
+            connection.close();
+
+            return list;
+        }
+        catch (Exception e)
+        {
+            System.out.println("GameHistoricoDAO - Erro: " + e.getMessage());
+
+            return null;
         }
     }
 }
