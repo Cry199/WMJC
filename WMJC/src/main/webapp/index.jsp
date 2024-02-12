@@ -59,7 +59,5 @@
         <p>WMJC 2023</p>
     </div>
 
-
-    <script src="/Pages/js/indexJavaS.js"></script>
 </body>
 </html>
