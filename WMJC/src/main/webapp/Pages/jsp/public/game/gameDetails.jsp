@@ -42,6 +42,7 @@
     </div>
 
     <div class="content">
+
         <img class="imgJogo" src="${sessionScope.game.bannerGamer}">
         <h1 class="tituloGame">${sessionScope.game.nameGame}</h1>
 
