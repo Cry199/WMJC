@@ -46,13 +46,6 @@
 
     <div class="content">
         <span>${requestScope.message}</span>
-        <div class="frame">
-            <a class="atag" href="WEB-INF/Pages/Jsp/public/game/games.jsp">
-                <form action="/Jogos" method="get">
-                    <button class="bubbly-button">Jogos</button>
-                </form>
-            </a>
-        </div>
     </div>
 
     <div class="footer">
