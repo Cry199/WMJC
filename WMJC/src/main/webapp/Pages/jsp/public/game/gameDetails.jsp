@@ -43,8 +43,14 @@
 
     <div class="content">
 
-        <img class="imgJogo" src="${sessionScope.game.bannerGamer}">
-        <h1 class="tituloGame">${sessionScope.game.nameGame}</h1>
+        <div class="imgName">
+            <div class="imgJogo">
+                <img src="${sessionScope.game.bannerGamer}" alt="">
+            </div>
+            <div class="tituloGame">
+                <h1 class="tituloGame">${sessionScope.game.nameGame}</h1>
+            </div>
+        </div>
 
         <div class="botaoA">
             <c:if test="${sessionScope.loggedUser != null && sessionScope.loggedUser.id == sessionScope.game.idUser}">
@@ -109,14 +115,22 @@
             <h2>Comentários</h2>
             <c:forEach var="commentUserProfile" items="${comments}">
                 <div class="comentariosGameDiv">
-                    <img class="imgComent" src="${commentUserProfile.userProfile.picProfile}" alt="">
-                    <a class="comentariosGameA" href="/perfil-detalhes?id=${commentUserProfile.userProfile.idDoUser}">${commentUserProfile.userProfile.profileName}</a>
-                    <p class="comentariosGameP">${commentUserProfile.comment.commentGame}</p>
+
+                    <div class="perfilUser">
+                        <a class="comentariosGameA" href="/perfil-detalhes?id=${commentUserProfile.userProfile.idDoUser}">
+                            <img class="imgComent" src="${commentUserProfile.userProfile.picProfile}" alt="">
+                            <h3>${commentUserProfile.userProfile.profileName}</h3>
+                        </a>
+                        <p class="comentariosGameP">${commentUserProfile.comment.commentGame}</p>
+                    </div>
+
                     <c:if test="${sessionScope.loggedUser.id == commentUserProfile.userProfile.idDoUser || sessionScope.loggedUser.id == sessionScope.game.idUser}">
                         <form action="/gameDeleteComment" method="post">
                             <input type="hidden" name="id" value="${commentUserProfile.comment.id}">
                             <input type="hidden" name="idGame" value="${sessionScope.game.id}">
-                            <button class="comentariosGameDeletar" type="submit">Deletar</button>
+                            <button class="comentariosGameDeletar" type="submit">
+                                <h4 class="comentariosGameDeletarH2">Deletar</h4>
+                            </button>
                         </form>
                     </c:if>
                 </div>
