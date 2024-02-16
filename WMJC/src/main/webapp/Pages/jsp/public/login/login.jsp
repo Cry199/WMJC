@@ -74,11 +74,11 @@
                         <label class="loginContFormLabel" for="sobrenome">Sobrenome: </label>
                         <input class="loginContFormInput" type="text" id="sobrenome" name="sobrenome">
 
-                        <label class="loginContFormLabel" for="senha">Senha: </label>
-                        <input class="loginContFormInput" type="password" id="senha" name="senha">
-
                         <label class="loginContFormLabel" for="email">Email: </label>
                         <input class="loginContFormInput" type="text" id="email" name="email">
+
+                        <label class="loginContFormLabel" for="senha">Senha: </label>
+                        <input class="loginContFormInput" type="password" id="senha" name="senha">
 
                         <button class="loginContFormButton" type="submit">Cadrastro</button>
 
