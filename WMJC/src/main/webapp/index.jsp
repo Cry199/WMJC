@@ -13,41 +13,43 @@
     <meta charset="UTF-8">
     <title>WMJC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link  rel="stylesheet" href="/Pages/css/gameCssStyles.css">
+    <link  rel="stylesheet" href="/Pages/css/generalStyles.css">
+    <link  rel="stylesheet" href="/Pages/css/indexStyles.css">
 </head>
 <body>
-    <c:if test="${sessionScope.loggedUser != null}">
-        <div class="menu">
-            <a href="/index">Home</a>
-            <a href="/Jogos">Jogos</a>
-            <a href="Pages/jsp/public/login/login.jsp">Login</a>
-            <a href="/perfil-detalhes?id=${sessionScope.loggedUser.id}">${sessionScope.loggedUser.username}</a>
-            <a href="/logout">Sair</a>
+
+    <div class="header">
+        <c:if test="${sessionScope.loggedUser != null}">
+            <div class="menu">
+
+                <h2 class="imgLogo">WMJC</h2>
+
+                <a href="/index">Home</a>
+                <a href="/Jogos">Jogos</a>
+                <a href="Pages/jsp/public/login/login.jsp">Login</a>
+                <a href="/perfil-detalhes?id=${sessionScope.loggedUser.id}">${sessionScope.loggedUser.username}</a>
+                <a href="/logout">Sair</a>
             </div>
-        </div>
-    </c:if>
+        </c:if>
 
-    <c:if test="${sessionScope.loggedUser == null}">
-        <div class="menu">
-            <a href="/index">Home</a>
-            <a href="/Jogos">Jogos</a>
-            <a href="Pages/jsp/public/login/login.jsp">Login</a>
-            <a href=""></a>
-            <a href="#"></a>
-        </div>
-        </div>
-    </c:if>
+        <c:if test="${sessionScope.loggedUser == null}">
+            <div class="menu">
 
-    <span>${requestScope.message}</span>
+                <h2 class="imgLogo">WMJC</h2>
+
+                <a href="/index">Home</a>
+                <a href="/Jogos">Jogos</a>
+                <a href="Pages/jsp/public/login/login.jsp">Login</a>
+            </div>
+        </c:if>
+    </div>
 
     <div class="content">
-        <h1>WELCOME TO WMJC</h1>
+        <span>${requestScope.message}</span>
+    </div>
 
-        <a href="WEB-INF/Pages/Jsp/public/game/games.jsp">
-            <form action="/Jogos" method="get">
-                <button class="" type="submit">Jogos</button>
-            </form>
-        </a>
+    <div class="footer">
+        <p>WMJC 2023</p>
     </div>
 
 </body>

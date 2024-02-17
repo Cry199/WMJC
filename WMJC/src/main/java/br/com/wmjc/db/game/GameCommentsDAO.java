@@ -2,7 +2,6 @@ package br.com.wmjc.db.game;
 
 import br.com.wmjc.config.ConnectionPoolConfig;
 import br.com.wmjc.model.game.commentsGame.GameCommentsModel;
-import br.com.wmjc.model.user.profile.Comments.ProfileComments;
 
 import java.math.BigInteger;
 import java.sql.Connection;
@@ -39,11 +38,14 @@ public class GameCommentsDAO
 
             System.out.println("Lista de comentarios: " + comments);
 
+            preparedStatement.close();
+            connection.close();
+
             return comments;
         }
         catch (Exception e)
         {
-            System.out.println("Erro: " + e.getMessage()); return null;
+            System.out.println("GameCommentsDAO - Erro: " + e.getMessage()); return null;
         }
     }
 
@@ -78,7 +80,7 @@ public class GameCommentsDAO
         }
         catch (Exception e)
         {
-            System.out.println("Erro: " + e.getMessage());
+            System.out.println("GameCommentsDAO - Erro: " + e.getMessage());
         }
     }
 }

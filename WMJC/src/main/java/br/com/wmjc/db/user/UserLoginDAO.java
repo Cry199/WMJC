@@ -7,8 +7,6 @@ import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 
 public class UserLoginDAO
 {
@@ -33,6 +31,7 @@ public class UserLoginDAO
 
                 System.out.println("Lista de usuarios: " + user);
 
+                preparedStatement.close();
                 connection.close();
 
                 return user;
@@ -40,7 +39,7 @@ public class UserLoginDAO
         }
         catch (Exception e)
         {
-            System.out.println("Erro ao verificar login: " + e.getMessage());
+            System.out.println("UserLoginDAO - Erro ao verificar login: " + e.getMessage());
         }
         return null;
     }
@@ -60,11 +59,15 @@ public class UserLoginDAO
                 String name = resultSet.getString("NOMEDOPERFIL");
 
                 UserModel user = new UserModel(iduser, img,name );
+
+                preparedStatement.close();
+                connection.close();
+
                 return user;
             }
 
         } catch (Exception e) {
-            System.out.println("Erro ao buscar usuario por id: " + e.getMessage());
+            System.out.println("UserLoginDAO - Erro ao buscar usuario por id: " + e.getMessage());
         }
         return null;
     }

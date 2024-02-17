@@ -1,0 +1,165 @@
+/* generalStyles.css */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body
+{
+    background-image: url(https://i.pinimg.com/originals/c0/cd/4c/c0cd4c0e4d5c280e34571db01b2dcfde.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(205, 205, 205, 0.6);
+    margin: 0;
+    padding: 0;
+    background-attachment: fixed;
+}
+
+.header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    opacity: 0.8;
+}
+
+.menu {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    margin-left: 25px;
+}
+
+.menu a:hover {
+    background-color: #555;
+    filter: brightness(120%);
+}
+
+.content
+{
+    color: #f0f0f0;
+    display: compact;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 15px 300px 10px 300px;
+    background-size: cover;
+    z-index: 1;
+}
+
+
+
+.footer {
+    margin: auto;
+    padding: 30px 0;
+    background-color: #333;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+/* Path: loginStyles.css */
+
+.loginCont
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-size: cover;
+    z-index: 2;
+}
+
+.loginContH1
+{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    padding: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+.loginConSpan
+{
+    display: flex;
+    flex-direction: column;
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    margin: auto;
+    justify-items: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.loginContForm
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    border: 1px solid #ffffff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    z-index: 3;
+    background-color: #333;;
+}
+
+.loginContFormInput
+{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+}
+
+.loginContFormButton
+{
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #333;
+    border-radius: 5px;
+    width: 150px;
+    height: 75px;
+}
+
+.loginContFormLabel
+{
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+.loginContFormP1
+{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+

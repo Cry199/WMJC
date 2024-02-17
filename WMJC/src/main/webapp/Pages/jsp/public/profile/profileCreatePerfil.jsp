@@ -17,43 +17,37 @@
 </head>
     <body>
 
-        <c:if test="${sessionScope.loggedUser != null}">
-            <div class="menu">
-                <a href="/index">Home</a>
-                <a href="/Jogos">Jogos</a>
-                <a href="Pages/jsp/public/login/login.jsp">Login</a>
-                <a href="/perfil-detalhes?id=${sessionScope.loggedUser.id}">${sessionScope.loggedUser.username}</a>
-                <a href="/logout">Sair</a>
-            </div>
-            </div>
-        </c:if>
+        <div class="header">
+            <c:if test="${sessionScope.loggedUser != null}">
+                <div class="menu">
+                    <a href="/index">Home</a>
+                    <a href="/Jogos">Jogos</a>
+                    <a href="Pages/jsp/public/login/login.jsp">Login</a>
+                    <a href="/perfil-detalhes?id=${sessionScope.loggedUser.id}">${sessionScope.loggedUser.username}</a>
+                    <a href="/logout">Sair</a>
+                </div>
+            </c:if>
 
-        <c:if test="${sessionScope.loggedUser == null}">
-            <div class="menu">
-                <a href="/index">Home</a>
-                <a href="/Jogos">Jogos</a>
-                <a href="Pages/jsp/public/login/login.jsp">Login</a>
-                <a href=""></a>
-                <a href="#"></a>
-            </div>
-        </c:if>
+            <c:if test="${sessionScope.loggedUser == null}">
+                <div class="menu">
+                    <a href="/index">Home</a>
+                    <a href="/Jogos">Jogos</a>
+                    <a href="Pages/jsp/public/login/login.jsp">Login</a>
+                </div>
+            </c:if>
+        </div>
 
         <form action="/perfil-criar" id="" method="post">
-
             <div class="profilIgm">
                 <input type="text" name="picProfile" id="picProfile" value="Foto do Perfil" required>
                 <input type="hidden" name="fieldToUpdate" value="picProfile">
             </div>
-
-            <br>
 
             <div class="profileInfo">
                 <h2>${sessionScope.profile.profileName}</h2>
                 <input type="text" name="profileName" id="username" value="Nome Do Perfil" required>
                 <input type="hidden" name="fieldToUpdate" value="profileName">
             </div>
-
-            <br>
 
             <input type="hidden" name="id" value="${sessionScope.loggedUser.id}">
 

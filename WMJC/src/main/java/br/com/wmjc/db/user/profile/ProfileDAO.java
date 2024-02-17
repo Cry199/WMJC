@@ -51,6 +51,7 @@ public class ProfileDAO
             {
                 String profileName = resultSet.getString("id");
 
+                preparedStatement.close();
                 connection.close();
 
                 return profileName;
@@ -58,7 +59,7 @@ public class ProfileDAO
         }
         catch (Exception e)
         {
-            System.out.println("Erro: " + e.getMessage());
+            System.out.println("ProfileDAO - Erro: " + e.getMessage());
         }
         return null;
     }
@@ -90,7 +91,7 @@ public class ProfileDAO
         }
         catch (Exception e)
         {
-            System.out.println("Erro: " + e.getMessage()); return null;
+            System.out.println("ProfileDAO - Erro: " + e.getMessage()); return null;
         }
     }
 
@@ -121,7 +122,7 @@ public class ProfileDAO
         }
         catch (Exception e)
         {
-            System.out.println("Erro: " + e.getMessage()); return null;
+            System.out.println("ProfileDAO - Erro: " + e.getMessage()); return null;
         }
     }
 
@@ -140,7 +141,7 @@ public class ProfileDAO
         }
         catch (Exception e)
         {
-            System.out.println("Erro: " + e.getMessage());
+            System.out.println("ProfileDAO - Erro: " + e.getMessage());
         }
     }
 
@@ -160,7 +161,7 @@ public class ProfileDAO
         }
         catch (Exception e)
         {
-            System.out.println("Erro: " + e.getMessage());
+            System.out.println("ProfileDAO - Erro: " + e.getMessage());
         }
     }
 
@@ -180,7 +181,7 @@ public class ProfileDAO
         }
         catch (Exception e)
         {
-            System.out.println("Erro: " + e.getMessage());
+            System.out.println("ProfileDAO - Erro: " + e.getMessage());
         }
         return false;
     }

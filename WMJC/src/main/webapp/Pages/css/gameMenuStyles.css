@@ -1,24 +1,67 @@
-@charset "utf-8";
-
-/******* Fonts Import Start **********/
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-/********* Fonts Face CSS End **********/
-
-/******* Common Element CSS Start ******/
-*
-{
-    margin: 0px;
-    padding: 0px;
+/* generalStyles.css */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
 }
 
-body
-{
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
+body {
+    width: 100%;
+    height: 100%;
+    background-image: url(https://i.pinimg.com/originals/a5/4c/98/a54c98c782fb2e3a652334baa70d6b39.gif);
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
+    background-color: rgb(205, 205, 205);
+    margin: 0;
+    background-attachment: fixed;
 }
 
+.header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    opacity: 0.7;
+}
 
+.menu {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    margin-left: 25px;
+}
+
+.menu a:hover {
+    background-color: #555;
+    filter: brightness(120%);
+}
+
+.content
+{
+
+    display: flex;
+    margin: 0 auto;
+    padding: 0 15px;
+    justify-content: center;
+}
+
+.footerGame {
+    margin: auto;
+    padding: 30px 0;
+    background-color: #333;
+    color: white;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0.7;
+}
 
 .cont
 {
@@ -89,3 +132,4 @@ body
 .igmDiv:hover div p {
     color: #fff !important;
 }
+

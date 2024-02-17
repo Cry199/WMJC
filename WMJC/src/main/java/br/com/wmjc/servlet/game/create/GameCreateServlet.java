@@ -36,6 +36,6 @@ public class GameCreateServlet extends HttpServlet
 
         new GameDAO().createGame(idUser, name, nomeDaTabela, description, imgGame);
 
-        resp.sendRedirect("/index");
+        resp.sendRedirect("/Jogos");
     }
 }
