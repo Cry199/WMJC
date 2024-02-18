@@ -7,17 +7,18 @@ body {
 body {
     width: 100%;
     height: 100%;
-    background-image: url(https://i.pinimg.com/originals/a5/4c/98/a54c98c782fb2e3a652334baa70d6b39.gif);
+    background-image: url(https://i.pinimg.com/originals/be/c8/da/bec8da01dc040a0a5205da7f404ff749.gif);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-color: rgb(205, 205, 205);
+    background-color: rgba(1, 1, 1, 0.90);
     margin: 0;
     background-attachment: fixed;
 }
 
 .header {
-    background-color: #333;
+    border: 1px solid #ffffff;
+    background-color: rgba(1, 1, 1, 0.90);
     color: white;
     padding: 20px 0;
     opacity: 0.7;
@@ -52,15 +53,16 @@ body {
     justify-content: center;
 }
 
-.footerGame {
-    margin: auto;
+.footerGame
+{
     padding: 30px 0;
-    background-color: #333;
+    border: 1px solid #ffffff;
+    background-color: rgba(1, 1, 1, 0.90);
     color: white;
     bottom: 0;
-    width: 100%;
+    margin: 0;
     text-align: center;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 .cont
