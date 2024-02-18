@@ -39,6 +39,7 @@
         </div>
 
         <div class="content">
+
             <div class="imgName">
                 <div class="imgJogo">
                     <img src="${sessionScope.profile.picProfile}" alt="">
@@ -50,7 +51,9 @@
 
             <div class="botaoA">
                 <c:if test="${sessionScope.loggedUser.id == sessionScope.profile.idDoUser}">
-                    <a class="atagB" href="/perfilInfoEdit?id=${sessionScope.loggedUser.id}">Editar Perfil</a>
+                    <a class="atagB" href="/perfilInfoEdit?id=${sessionScope.loggedUser.id}">
+                        Editar Perfil
+                    </a>
                 </c:if>
             </div>
 
@@ -97,7 +100,7 @@
                         <div class="perfilUser">
                             <a class="comentariosGameA" href="/perfil-detalhes?id=${commentProfile.userProfile.idDoUser}">
                                 <img class="imgComent" src="${commentProfile.userProfile.picProfile}" alt="" width="100px">
-                                    <h3>${commentProfile.userProfile.profileName}</h3>
+                                <h3>${commentProfile.userProfile.profileName}</h3>
                             </a>
                             <p class="comentariosGameP"> ${commentProfile.commentProfile.comment}</p>
                         </div>

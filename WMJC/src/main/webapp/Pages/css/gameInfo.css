@@ -11,16 +11,16 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    margin: 0;
     background-attachment: fixed;
-    opacity: 0.8;
-    z-index: -1;
 }
 
 .header {
+    border: 1px solid #ffffff;
     background-color: #333;
     color: white;
-    padding: 20px 0;
+    padding: 20px ;
+    text-align: center;
+    opacity: 0.8;
 }
 
 .menu {
@@ -62,7 +62,7 @@ body {
 
 .content
 {
-    background-color: rgba(1, 1, 1, 0.91);
+    background-color: rgba(1, 1, 1, 0.90) !important;
     color: #f0f0f0;
     display: compact;
     border: 1px solid #ffffff;
@@ -71,6 +71,7 @@ body {
     padding: 20px;
     margin: 0 300px;
     background-size: cover;
+    z-index: 1;
 }
 
 .atividadeRecente{
@@ -93,8 +94,9 @@ body {
     color: white;
     padding: 15px;
     margin: auto;
-    justify-items: center !important;
-    align-items: center !important;
+    justify-items: center;
+    align-items: center;
+    flex-grow: 1;
 }
 
 .decGame
@@ -107,20 +109,32 @@ body {
     align-items: center;
 }
 
-
+.imgName
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    border: 1px solid #ffffff;
+    padding: 20px;
+    margin-bottom: 30px;
+}
 
 .imgJogo
 {
-    width: auto;
-    height: auto;
-    display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 0 10px 0;
-    margin: 0 200px 0 300px;
     background-size: cover;
 }
 
+.tituloGame
+{
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    padding: 20px;
+}
 
 .footer {
     margin: auto;
@@ -133,20 +147,26 @@ body {
 }
 
 .footerGame {
-    margin: auto;
+    border: 1px solid #ffffff;
     padding: 30px 0;
     background-color: #333333;
     color: white;
-    bottom: 0;
     width: 100%;
     text-align: center;
+    opacity: 0.8;
 }
 
 .group {}
 
+.perfilUser
+{
+    display: flex;
+}
+
+
 .comentariosGame
 {
-    background-color: rgb(1, 1, 1);
+    background-color: rgba(1, 1, 1, 0.9);
     color: white;
     text-align: center;
     font-size: 20px;
@@ -168,12 +188,12 @@ body {
     text-align: center;
     font-size: 20px;
     padding: 20px;
+    margin: 0px 20px 5px;
     justify-items: center;
     align-items: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-    border: 1px solid #ffffff
+    display: flex;
+    border: 1px solid #ffffff;
+    flex-grow: 1;
 }
 
 .comentariosGameIn
@@ -207,7 +227,7 @@ body {
     text-decoration: none;
     padding: 10px 20px;
     display: inline-block;
-    margin-left: 25px;
+    margin: auto;
     justify-items: center;
     align-items: center;
 }

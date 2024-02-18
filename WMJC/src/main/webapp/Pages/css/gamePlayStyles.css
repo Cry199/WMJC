@@ -1,25 +1,25 @@
 /* generalStyles.css */
 body {
     margin: 0;
+    padding: 0;
     font-family: 'Arial', sans-serif;
 }
 
 body
 {
-    background-image: url(https://i.pinimg.com/originals/c0/cd/4c/c0cd4c0e4d5c280e34571db01b2dcfde.gif);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     background-color: rgba(205, 205, 205, 0.6);
-    margin: 0;
-    padding: 0;
     background-attachment: fixed;
 }
 
 .header {
-    background-color: #333;
+    border: 1px solid #ffffff;
+    background-color: rgba(1, 1, 1, 0.90);
     color: white;
-    padding: 20px 0;
+    padding: 20px ;
+    text-align: center;
     opacity: 0.8;
 }
 
@@ -38,6 +38,23 @@ body
     margin-left: 25px;
 }
 
+.atagB{
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    margin-left: 25px;
+    justify-items: center;
+    align-items: center;
+}
+
+.atagB:hover {
+    background-color: #555;
+    filter: brightness(120%);
+    justify-items: center;
+    align-items: center;
+}
+
 .menu a:hover {
     background-color: #555;
     filter: brightness(120%);
@@ -45,33 +62,37 @@ body
 
 .content
 {
-    background-color: rgb(1, 1, 1) !important;
+    background-color: rgba(1, 1, 1, 0.90) !important;
     color: #f0f0f0;
     display: compact;
     border: 1px solid #ffffff;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    margin-bottom: 100px;
-    margin-top: 100px;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin: 0 300px;
     background-size: cover;
     z-index: 1;
 }
 
-
-
-.footer {
-    margin: auto;
-    padding: 30px 0;
-    background-color: #333;
+.footer
+{
+    border: 1px solid #ffffff;
+    background-color: rgba(1, 1, 1, 0.90);
     color: white;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    padding: 20px ;
     text-align: center;
+    opacity: 0.8;
 }
 
-
+.contentDiv
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 0 300px;
+    background-size: cover;
+    z-index: 1;
+}
 
