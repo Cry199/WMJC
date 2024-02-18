@@ -1,5 +1,6 @@
 /* generalStyles.css */
-body {
+body
+{
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
@@ -12,9 +13,13 @@ body
     background-size: cover;
     background-color: rgba(205, 205, 205, 0.6);
     background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.header {
+.header
+{
     border: 1px solid #ffffff;
     background-color: rgba(1, 1, 1, 0.90);
     color: white;
@@ -72,6 +77,7 @@ body
     margin: 0 300px;
     background-size: cover;
     z-index: 1;
+    flex: 1 0 auto;
 }
 
 .footer
@@ -96,3 +102,34 @@ body
     z-index: 1;
 }
 
+.contentDivForm
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 0 300px;
+    background-size: cover;
+    z-index: 1;
+}
+
+.contentDivFormButton
+{
+    display: inline-block;
+    font-size: 16px;
+    padding: 10px 20px;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin: 0 30px;
+    cursor: pointer;
+}
+
+.contentDivFormButton:hover
+{
+    background-color: #0056b3;
+}
