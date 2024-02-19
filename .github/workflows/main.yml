@@ -29,11 +29,3 @@ jobs:
 
       - name: Run JUnit Tests
         run: mvn -B test --file pom.xml
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          publish_dir: ./target/my-app
-          publish_branch: gh-pages
-        env:
-            GITHUB_TOKEN: ${{ secrets.JAVA_TOKEN }}
