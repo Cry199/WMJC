@@ -14,8 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Pages/css/gameInfo.css">
 </head>
-<body>
-
+<body style="background-image: url(${sessionScope.game.bannerGamer})">
     <div class="header">
         <c:if test="${sessionScope.loggedUser != null}">
             <div class="menu">

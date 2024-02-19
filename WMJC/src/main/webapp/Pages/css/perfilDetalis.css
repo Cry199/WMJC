@@ -16,14 +16,15 @@ body {
 
 .header {
     border: 1px solid #ffffff;
-    background-color: #333;
+    background-color: rgba(1, 1, 1, 0.90);
     color: white;
     padding: 20px ;
     text-align: center;
     opacity: 0.8;
 }
 
-.menu {
+.menu
+{
     font-size: 20px;
     display: flex;
     justify-content: center;
@@ -145,13 +146,13 @@ body {
 }
 
 .footerGame {
-    border: 1px solid #ffffff;
+    margin: auto;
     padding: 30px 0;
-    background-color: #333333;
+    background-color: rgba(1, 1, 1, 0.90);
     color: white;
+    bottom: 0;
     width: 100%;
     text-align: center;
-    opacity: 0.8;
 }
 
 .group
