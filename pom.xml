@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>br.com.wmjc</groupId>
-  <artifactId>java-maven</artifactId>
+  <artifactId>java-maven-wmjc</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>WMJC Maven Webapp</name>
@@ -88,7 +88,7 @@
         <version>3.2.2</version>
         <configuration>
           <webXml>src\main\webapp\WEB-INF\web.xml</webXml>
-          <warSourceDirectory>src/main/webapp</warSourceDirectory>
+          <warSourceDirectory>WMJC/src/main/webapp</warSourceDirectory>
         </configuration>
       </plugin>
 
