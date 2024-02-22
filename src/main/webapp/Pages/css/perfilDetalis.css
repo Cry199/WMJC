@@ -7,7 +7,7 @@ body {
 body {
     width: 100%;
     height: 100%;
-    background-image: url(https://i.pinimg.com/originals/bd/5a/40/bd5a4058dd351f2f4a35a4c37ef2bf07.gif);
+    background-image: url(https://i.pinimg.com/originals/0a/d5/bb/0ad5bb032b0d35e4f27edcd713e67614.gif);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -153,6 +153,8 @@ body {
     bottom: 0;
     width: 100%;
     text-align: center;
+    border: 1px solid #ffffff;
+    opacity: 0.8;
 }
 
 .group
@@ -323,9 +325,9 @@ body {
     text-decoration: none;
     padding: 10px 20px;
     display: inline-block;
-    margin-left: 25px;
     justify-items: center;
     align-items: center;
+    margin: 20px 0 0 0;
 }
 
 .comentariosGameDeletar:hover
@@ -334,14 +336,14 @@ body {
     filter: brightness(120%);
     justify-items: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .comentariosGameDeletarH2
 {
-    color: #555;
+    color: #000000;
     text-align: center;
     font-size: 20px;
-    padding: 20px;
     margin: 0;
     padding: 0;
     justify-items: center;
@@ -445,6 +447,60 @@ input:focus ~ .bar:before, input:focus ~ .bar:after
     justify-items: center;
     align-items: center;
 }
+
+.center
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.centerRow
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.centerRow1
+{
+    flex-direction: row;
+}
+
+.updateImg
+{
+    flex-direction: row;
+    margin-bottom: 20px;
+    border: 1px solid #ffffff;
+}
+
+.inputTextImg
+{
+    color: #000000;
+    text-align: left;
+    font-size: 20px;
+    padding: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+.profileInfoH2
+{
+    text-align: left;
+}
+
+.spanErro
+{
+    color: red;
+    text-align: left;
+    font-size: 20px;
+    padding: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
 
 /* active state */
 input:focus ~ .highlight {
