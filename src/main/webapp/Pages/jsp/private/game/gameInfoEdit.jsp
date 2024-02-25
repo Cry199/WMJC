@@ -61,21 +61,21 @@
 
                 <div class="comentariosGame">
                     <form action="/gameInfoEdit" method="post">
-                        <div class="GameIMG">
-                            <img src="${sessionScope.game.bannerGamer}" alt="" width="100px">
-                            <input type="text" name="picGame" id="picGame" value="${sessionScope.game.bannerGamer}" required>
+                        <div class="profilIgm">
+                            <img class="updateImg" src="${sessionScope.game.bannerGamer}" alt="" width="100px">
+                            <input class="profileInfoH2" type="text" name="picGame" id="picGame" value="${sessionScope.game.bannerGamer}" required>
                             <input type="hidden" name="" value="picGame">
                         </div>
 
-                        <div class="gameInfo">
-                            <h2>${sessionScope.game.nameGame}</h2>
-                            <input type="text" name="gameName" id="gameName" value="${sessionScope.game.nameGame}" required>
+                        <div class="profileInfo">
+                            <h2 class="profileInfoH2">${sessionScope.game.nameGame}</h2>
+                            <input class="inputTextImg" type="text" name="gameName" id="gameName" value="${sessionScope.game.nameGame}" required>
                             <input type="hidden" name="" value="gameName">
                         </div>
 
-                        <div class="gameDescription">
-                            <h2>${sessionScope.game.descGame}</h2>
-                            <input type="text" name="aa" id="gameDesc" value="${sessionScope.game.descGame}" required>
+                        <div class="profileInfo">
+                            <p class="profileInfoH2">${sessionScope.game.descGame}</p>
+                            <input class="inputTextImg" type="text" name="aa" id="gameDesc" value="${sessionScope.game.descGame}" required>
                             <input type="hidden" name="" value="descGame">
                         </div>
 
