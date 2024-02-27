@@ -28,6 +28,12 @@ public class GameCreateFinalServlet extends HttpServlet
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("loggedUser") == null) {
+            response.sendRedirect("/gameInfoEdit?erro=1");
+            return;
+        }
+
         String nameTable = request.getParameter("nameTable");
 
         String texto = request.getParameter("texto");
@@ -53,7 +59,6 @@ public class GameCreateFinalServlet extends HttpServlet
 
             request.setAttribute("gameList", gameList);
 
-            HttpSession session = request.getSession();
             session.setAttribute("nameTable", nameTable);
 
             request.getSession().setAttribute("clickUser", "listGame");

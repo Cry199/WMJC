@@ -16,8 +16,9 @@ public class GameInfoEditDeleteServlet extends HttpServlet
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         String id = req.getParameter("id");
+        String nomeDaTabela = req.getParameter("nameTable");
 
-        new GameDAO().deleteGame(id);
+        new GameDAO().deleteGame(id, nomeDaTabela);
 
         req.setAttribute("message", "Deleted with success!");
 
