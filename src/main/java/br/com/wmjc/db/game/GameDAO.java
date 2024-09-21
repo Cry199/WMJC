@@ -102,11 +102,31 @@ public class GameDAO
         }
     }
 
-    public void deleteGame(String id)
+    public void deleteGame(String id, String nomeDaTabela)
     {
         try (Connection connection = ConnectionPoolConfig.getConnection())
         {
-            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM JOGOS WHERE ID = ?");
+            // Delete all comments from the game
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM COMENTARIODEJOGO WHERE IDJOGO = ?");
+            preparedStatement.setString(1, id);
+            preparedStatement.execute();
+
+            // Delete all plays from the game
+            preparedStatement = connection.prepareStatement("DELETE FROM HISTORICO_DE_JOGADAS WHERE ID_DO_JOGO = ?");
+            preparedStatement.setString(1, id);
+            preparedStatement.execute();
+
+            // Delete all plays from the game
+            preparedStatement = connection.prepareStatement("DELETE FROM JOGOS_MAIS_JOGADOS WHERE IDJOGO = ?");
+            preparedStatement.setString(1, id);
+            preparedStatement.execute();
+
+            // Delete the game table
+            preparedStatement = connection.prepareStatement("DROP TABLE IF EXISTS " + nomeDaTabela);
+            preparedStatement.execute();
+
+            // Delete the game
+            preparedStatement = connection.prepareStatement("DELETE FROM JOGOS WHERE ID = ?");
             preparedStatement.setString(1, id);
             preparedStatement.execute();
 
